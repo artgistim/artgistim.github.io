@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "source": "履歷作品集 / 直式簡歷 PPT 擷取並壓縮為網頁用 JPEG",
+    "last_updated": "2026-08-09"
+  },
+  "awards_photos": [
+    {
+      "src": "assets/awards/award-07.jpg",
+      "thumb": "assets/thumbs/award-07.jpg",
+      "caption": "2024 臺北城市儀表板大黑客松 · 第二名頒獎合照",
+      "year": 2024
+    },
+    {
+      "src": "assets/awards/award-06.jpg",
+      "thumb": "assets/thumbs/award-06.jpg",
+      "caption": "黑客松競賽與頒獎現場",
+      "year": 2024
+    },
+    {
+      "src": "assets/awards/award-10.jpg",
+      "thumb": "assets/thumbs/award-10.jpg",
+      "caption": "城市通／程式設計節相關活動",
+      "year": 2024
+    },
+    {
+      "src": "assets/awards/award-08.jpg",
+      "thumb": "assets/thumbs/award-08.jpg",
+      "caption": "競賽團隊合影",
+      "year": 2022
+    },
+    {
+      "src": "assets/awards/award-01.jpg",
+      "thumb": "assets/thumbs/award-01.jpg",
+      "caption": "開放資料／黑客松活動現場（唐鳳等貴賓場合）",
+      "year": 2018
+    },
+    {
+      "src": "assets/awards/award-04.jpg",
+      "thumb": "assets/thumbs/award-04.jpg",
+      "caption": "亞洲跨國黑客松成果交流",
+      "year": 2017
+    },
+    {
+      "src": "assets/awards/award-03.jpg",
+      "thumb": "assets/thumbs/award-03.jpg",
+      "caption": "智慧城市創意競賽與展覽",
+      "year": 2017
+    },
+    {
+      "src": "assets/awards/award-05.jpg",
+      "thumb": "assets/thumbs/award-05.jpg",
+      "caption": "公民科技與黑客松活動",
+      "year": 2017
+    },
+    {
+      "src": "assets/awards/award-02.jpg",
+      "thumb": "assets/thumbs/award-02.jpg",
+      "caption": "競賽與交流合影",
+      "year": 2017
+    },
+    {
+      "src": "assets/awards/award-09.jpg",
+      "thumb": "assets/thumbs/award-09.jpg",
+      "caption": "資料視覺化競賽現場",
+      "year": 2019
+    },
+    {
+      "src": "assets/awards/award-11.jpg",
+      "thumb": "assets/thumbs/award-11.jpg",
+      "caption": "活動與頒獎紀錄",
+      "year": 2020
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "arc-hop",
+      "title": "人流 Arc-hop 分析",
+      "category": "traffic",
+      "badge": "Big Data",
+      "image": "assets/works/arc-hop.jpg",
+      "thumb": "assets/thumbs/arc-hop.jpg",
+      "desc": "數億筆 GPS 以 Geohash 統整時段移動方向，弧形跳躍圖呈現尖峰人流趨勢。"
+    },
+    {
+      "id": "od",
+      "title": "起訖（O-D）分析",
+      "category": "traffic spatial",
+      "badge": "O-D",
+      "image": "assets/works/od-analysis.jpg",
+      "thumb": "assets/thumbs/od-analysis.jpg",
+      "desc": "以左營高鐵為 Origin、屏東為 Destination，解析旅客落點比例。"
+    },
+    {
+      "id": "3d-viz",
+      "title": "3D 社會經濟視覺化",
+      "category": "viz spatial",
+      "badge": "3D Viz",
+      "image": "assets/works/3d-socioecon.jpg",
+      "thumb": "assets/thumbs/3d-socioecon.jpg",
+      "desc": "最小統計區 × 年齡分布，Kepler.gl 呈現高度與色溫多維訊息。"
+    },
+    {
+      "id": "hotspot-3d",
+      "title": "Hot Spot 3D Map",
+      "category": "viz traffic",
+      "badge": "3D",
+      "image": "assets/works/hotspot-3d.jpg",
+      "thumb": "assets/thumbs/hotspot-3d.jpg",
+      "desc": "旅宿曝光與價格之地理 3D 視覺化，支援行銷策略判讀。"
+    },
+    {
+      "id": "grid",
+      "title": "Grid 網格分析",
+      "category": "spatial",
+      "badge": "GIS",
+      "image": "assets/works/grid-pm25.jpg",
+      "thumb": "assets/thumbs/grid-pm25.jpg",
+      "desc": "全域網格萃取 PM2.5 等元素，支援選址與正規化比較。"
+    },
+    {
+      "id": "hub-spoke",
+      "title": "Hub & Spoke 空間關聯",
+      "category": "spatial",
+      "badge": "Network",
+      "image": "assets/works/hub-spoke.jpg",
+      "thumb": "assets/thumbs/hub-spoke.jpg",
+      "desc": "高齡活動中心與綠地、廟宇、學校最短距離樞軸連線。"
+    },
+    {
+      "id": "color-overlay",
+      "title": "Color Overlay 疊圖",
+      "category": "viz spatial",
+      "badge": "Overlay",
+      "image": "assets/works/color-overlay.jpg",
+      "thumb": "assets/thumbs/color-overlay.jpg",
+      "desc": "RGB 色彩疊透呈現社福資源與無障礙環境複合特質。"
+    },
+    {
+      "id": "growth",
+      "title": "消費成長比較視覺化",
+      "category": "viz",
+      "badge": "Growth",
+      "image": "assets/works/growth-compare.jpg",
+      "thumb": "assets/thumbs/growth-compare.jpg",
+      "desc": "電子發票 × Geocoding × 區位商數，時間軸圓圈呈現成長動能。"
+    },
+    {
+      "id": "urban-comp",
+      "title": "都市機能綜合分析",
+      "category": "spatial viz",
+      "badge": "Urban",
+      "image": "assets/works/urban-comprehensive.jpg",
+      "thumb": "assets/thumbs/urban-comprehensive.jpg",
+      "desc": "爬蟲店家、臉書熱度與開放資料整合，詮釋居住／就學／商圈機能。"
+    },
+    {
+      "id": "hpc",
+      "title": "高效能人流網格運算",
+      "category": "traffic auto",
+      "badge": "HPC",
+      "image": "assets/works/hpc-raster.jpg",
+      "thumb": "assets/thumbs/hpc-raster.jpg",
+      "desc": "數億 GPS 轉 GeoTIFF 網格運算，加速熱度圖細緻化。"
+    },
+    {
+      "id": "path",
+      "title": "Path Tracing 軌跡重現",
+      "category": "spatial traffic",
+      "badge": "Track",
+      "image": "assets/works/path-tracing.jpg",
+      "thumb": "assets/thumbs/path-tracing.jpg",
+      "desc": "GPS 軌跡線性呈現運動熱點（示意以公開社群軌跡概念）。"
+    },
+    {
+      "id": "aoi",
+      "title": "Google AOI 向量化",
+      "category": "spatial",
+      "badge": "AOI",
+      "image": "assets/works/google-aoi.jpg",
+      "thumb": "assets/thumbs/google-aoi.jpg",
+      "desc": "QGIS 將商業熱區影像轉向量，利於後續地理分析。"
+    },
+    {
+      "id": "cluster",
+      "title": "地理特徵分群",
+      "category": "spatial",
+      "badge": "Cluster",
+      "image": "assets/works/geo-cluster.jpg",
+      "thumb": "assets/thumbs/geo-cluster.jpg",
+      "desc": "人口、學校、綠地、交通 × 商業熱區 K-means 類聚。"
+    },
+    {
+      "id": "spatial-unit",
+      "title": "空間單元標準化",
+      "category": "traffic spatial",
+      "badge": "TDX",
+      "image": "assets/works/spatial-unit.jpg",
+      "thumb": "assets/thumbs/spatial-unit.jpg",
+      "desc": "公車 GPS 頻率與人流資料統一空間單元交叉比對。"
+    },
+    {
+      "id": "segment",
+      "title": "人行道使用率分析",
+      "category": "spatial traffic",
+      "badge": "Segment",
+      "image": "assets/works/segment-extract.jpg",
+      "thumb": "assets/thumbs/segment-extract.jpg",
+      "desc": "線轉面拓樸後與人流網格交集，萃取各時段人行道使用特徵。"
+    },
+    {
+      "id": "tod",
+      "title": "碩士論文 · 捷運 TOD",
+      "category": "spatial",
+      "badge": "TOD",
+      "image": "assets/works/tod-thesis.jpg",
+      "thumb": "assets/thumbs/tod-thesis.jpg",
+      "desc": "ArcGIS 多重路網分析捷運對生活便捷度與 Diversity Contours。"
+    },
+    {
+      "id": "nasa-art",
+      "title": "Artify the Earth",
+      "category": "viz",
+      "badge": "NASA",
+      "image": "assets/works/nasa-art.jpg",
+      "thumb": "assets/thumbs/nasa-art.jpg",
+      "desc": "NASA 黑客松：衛星影像與地表溫度後製之地圖藝術創作。"
+    },
+    {
+      "id": "urban-vibrant",
+      "title": "Urban Vibrant 商業熱區",
+      "category": "spatial viz",
+      "badge": "POI",
+      "image": "assets/works/urban-vibrant.jpg",
+      "thumb": "assets/thumbs/urban-vibrant.jpg",
+      "desc": "POI 評論與評等 × 耗電／綠地，評估活動熱絡場所。"
+    }
+  ]
+}

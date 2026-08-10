@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="卓易霆 Tim Cho — 都市計畫技師｜AI 數據分析｜資料視覺化｜專案管理" />
+  <meta name="author" content="卓易霆 Tim Cho" />
+  <meta property="og:title" content="卓易霆 Tim Cho | Portfolio" />
+  <meta property="og:description" content="都市計畫技師 × AI 數據分析 × 資料視覺化" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile/portrait.jpg" />
+  <title>卓易霆 Tim Cho | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#hero" class="logo">TIM CHO</a>
+      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about" class="nav-link">關於</a></li>
+        <li><a href="#portfolio" class="nav-link">作品</a></li>
+        <li><a href="#experience" class="nav-link">經歷</a></li>
+        <li><a href="#skills" class="nav-link">專長</a></li>
+        <li><a href="#awards" class="nav-link">獎項</a></li>
+        <li><a href="#lectures" class="nav-link">講義</a></li>
+        <li><a href="#contact" class="nav-link">聯絡</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="切換深淺色模式" type="button">
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <div class="hero-identity reveal">
+            <img
+              class="hero-avatar"
+              src="assets/profile/portrait.jpg"
+              alt="卓易霆"
+              width="72"
+              height="72"
+              loading="eager"
+            />
+            <div>
+              <p class="hero-eyebrow">Urban Planning Engineer · AI Data Analytics</p>
+              <h1 class="hero-title">
+                <span class="name-zh">卓易霆</span>
+                <span class="name-en">Tim Cho</span>
+              </h1>
+            </div>
+          </div>
+          <p class="hero-tagline reveal">
+            以數據與空間分析驅動決策——專長大數據、GIS 視覺化與流程自動化。
+          </p>
+          <div class="hero-tags reveal">
+            <span>都市計畫技師</span>
+            <span>AI 數據分析</span>
+            <span>資料視覺化</span>
+            <span>專案管理</span>
+          </div>
+          <div class="hero-cta reveal">
+            <a href="#portfolio" class="btn btn-primary">查看作品</a>
+            <a href="#contact" class="btn btn-outline">聯絡方式</a>
+          </div>
+        </div>
+        <div class="hero-showcase reveal" aria-label="代表作品">
+          <a class="showcase-main" href="#portfolio">
+            <img src="assets/works/arc-hop.jpg" alt="人流 Arc-hop 分析" loading="eager" />
+            <span>Foot Traffic · Arc-hop</span>
+          </a>
+          <div class="showcase-side">
+            <a href="#portfolio">
+              <img src="assets/works/od-analysis.jpg" alt="O-D 分析" loading="lazy" />
+              <span>O-D Analysis</span>
+            </a>
+            <a href="#portfolio">
+              <img src="assets/works/3d-socioecon.jpg" alt="3D 社會經濟視覺化" loading="lazy" />
+              <span>3D Socioeconomic</span>
+            </a>
+            <a href="#portfolio">
+              <img src="assets/works/hpc-raster.jpg" alt="高效能人流網格" loading="lazy" />
+              <span>High-performance Grid</span>
+            </a>
+            <a href="#portfolio">
+              <img src="assets/works/hotspot-3d.jpg" alt="Hot Spot 3D" loading="lazy" />
+              <span>Hot Spot 3D</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 關於 -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>關於</h2>
+        </header>
+        <div class="about-grid">
+          <div class="about-intro reveal">
+            <p>
+              在都市規劃工作數年後，轉職用數據解析都市。專長大數據分析、地理資訊科學與 AI 流程自動化，擅長將複雜議題拆解為可執行的流程、儀表板與工具，支援數據驅動決策。
+            </p>
+            <p>
+              熟悉機敏數據處理規範，具備政府實體隔離（Air-gapped）機房獨立部署分析程式與資料庫的實務經驗。曾獲多項政府及企業黑客松首獎，具備高敏捷度與短時程交付能力。
+            </p>
+            <ul class="about-meta">
+              <li>
+                <strong>學歷</strong>
+                國立成功大學 都市計劃研究所碩士（2013）／學士（2011）
+              </li>
+              <li>
+                <strong>資格</strong>
+                都市計畫技師（技證字第 012135 號）
+              </li>
+              <li>
+                <strong>著作</strong>
+                《大數據地圖與地理空間資料視覺化設計指南》（2022，五南）
+              </li>
+            </ul>
+          </div>
+          <div class="about-stats reveal">
+            <div class="stat-card">
+              <span class="stat-num" data-count="10">0</span>
+              <span class="stat-label">年+ 跨域經驗</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-count="15">0</span>
+              <span class="stat-label">+ 黑客松獎項</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-count="300">0</span>
+              <span class="stat-suffix">萬</span>
+              <span class="stat-label">年省委外經費</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-count="4">0</span>
+              <span class="stat-label">段職涯歷練</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 作品 -->
+    <section class="section section-alt" id="portfolio">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>精選作品</h2>
+        </header>
+        <div class="filter-bar reveal" role="group" aria-label="作品分類">
+          <button type="button" class="filter-btn active" data-filter="all">全部</button>
+          <button type="button" class="filter-btn" data-filter="viz">視覺化</button>
+          <button type="button" class="filter-btn" data-filter="spatial">空間分析</button>
+          <button type="button" class="filter-btn" data-filter="traffic">人流大數據</button>
+          <button type="button" class="filter-btn" data-filter="auto">自動化</button>
+        </div>
+        <div class="portfolio-grid portfolio-grid-visual" id="portfolioGrid"></div>
+      </div>
+    </section>
+
+    <!-- 經歷 -->
+    <section class="section" id="experience">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>工作經歷</h2>
+        </header>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <button type="button" class="timeline-header" aria-expanded="true">
+              <div class="timeline-dot"></div>
+              <div class="timeline-meta">
+                <time>2022.07 – 2026.05</time>
+                <h3>Vpon 威朋大數據</h3>
+                <p class="role">資深數據分析師 / 專案 PM</p>
+              </div>
+              <span class="timeline-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>運用 GCP 處理億級手機裝置、廣告與電子發票數據，完成人流與受眾輪廓分析並以 Tableau 交付。</li>
+                <li>以 AI Agent 與分析模組化，將客製分析交付由 2–3 週縮短至 1 週。</li>
+                <li>以 Python 開發輕量網頁儀表板 + SQLite，降低授權成本並支援機敏環境離線協作。</li>
+                <li>支援 Cool Japan 聯盟策略長與 CEO 級 PoC、論壇與策略溝通素材。</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="timeline-dot"></div>
+              <div class="timeline-meta">
+                <time>2020.09 – 2022.06</time>
+                <h3>國家住宅及都市更新中心</h3>
+                <p class="role">資深專員 / 統計專案負責人</p>
+              </div>
+              <span class="timeline-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>以 Python + QGIS 重構住宅統計案，建立一鍵檢核與報告產出機制，年省約 300 萬委外經費，獲內政部記功 2 次。</li>
+                <li>到職 3 個月釐清累積 9 年缺乏交接之報告案，建立知識庫讓非程式同仁可標準化產報。</li>
+                <li>於財政部資訊中心實體隔離機房完成 Python 統計分析，熟稔機敏資料作業規範。</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="timeline-dot"></div>
+              <div class="timeline-meta">
+                <time>2017.05 – 2020.09</time>
+                <h3>微程式資訊</h3>
+                <p class="role">高級工程師</p>
+              </div>
+              <span class="timeline-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>主導智慧城鄉科專（總經費 3,311 萬、2 年），100% 全額補助結案，取得研發補助 1,324 萬。</li>
+                <li>參與台北、高雄 YouBike 2.0 AI 選址與營運優化，每週省下團隊 4–8 小時作業工時，並向捷安特高層簡報。</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <button type="button" class="timeline-header" aria-expanded="false">
+              <div class="timeline-dot"></div>
+              <div class="timeline-meta">
+                <time>2013.11 – 2017.05</time>
+                <h3>長豐工程顧問</h3>
+                <p class="role">都市規劃師</p>
+              </div>
+              <span class="timeline-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>通盤檢討、個案變更、工業區產業政策、法規研析、環評報告整合。</li>
+                <li>以 LISP 自動化 CAD 圖面標註與計算，大幅提升效率並達成數值零誤植。</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 專長 -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>核心專長</h2>
+        </header>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3>資料整合與流程自動化</h3>
+            <p>Python ETL、AI Agent、模組化分析。客製分析交付由 2–3 週縮短至 1 週，並可自動化規格書與報告產出。</p>
+            <div class="skill-tags">
+              <span>Python</span><span>AI Agent</span><span>ETL</span><span>SQLite</span>
+            </div>
+          </article>
+          <article class="skill-card reveal">
+            <h3>決策儀表板與營運優化</h3>
+            <p>整合億級異質數據，交付互動／離線儀表板與 KPI 預警，降低決策延遲、加速跨部門協作。</p>
+            <div class="skill-tags">
+              <span>Tableau</span><span>Power BI</span><span>GCP</span><span>Kepler.gl</span>
+            </div>
+          </article>
+          <article class="skill-card reveal">
+            <h3>GIS 與都市計畫</h3>
+            <p>土地變更、產業政策、法規研析與成本效益評估；結合空間分析與資料科學解析都市議題。</p>
+            <div class="skill-tags">
+              <span>QGIS</span><span>ArcGIS</span><span>GeoJSON</span><span>法規</span>
+            </div>
+          </article>
+          <article class="skill-card reveal">
+            <h3>專案管控與 Root Cause</h3>
+            <p>複雜需求拆解、跨團隊協調、PoC 驗證。曾主導經濟部智慧城鄉科專（總經費 3,311 萬）。</p>
+            <div class="skill-tags">
+              <span>PM</span><span>PoC</span><span>Capex</span><span>Agile</span>
+            </div>
+          </article>
+        </div>
+        <div class="tech-bar reveal">
+          <div class="tech-list">
+            <span>Python</span><span>SQL</span><span>GCP</span><span>AI Agent</span>
+            <span>ETL</span><span>Power BI</span><span>Tableau</span><span>QGIS</span>
+            <span>Dashboard</span><span>SQLite</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 獎項 -->
+    <section class="section" id="awards">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>獎項榮譽</h2>
+        </header>
+        <div class="award-photos-rail reveal" id="awardPhotosRail" aria-label="活動與頒獎合照"></div>
+        <div class="filter-bar awards-filter reveal" role="group" aria-label="獎項篩選">
+          <button type="button" class="filter-btn active" data-award-filter="all">全部</button>
+          <button type="button" class="filter-btn" data-award-filter="featured">精選</button>
+          <button type="button" class="filter-btn" data-award-filter="2024">2024</button>
+          <button type="button" class="filter-btn" data-award-filter="2022">2022</button>
+          <button type="button" class="filter-btn" data-award-filter="2021">2021</button>
+          <button type="button" class="filter-btn" data-award-filter="2020">2020</button>
+          <button type="button" class="filter-btn" data-award-filter="2019">2019</button>
+          <button type="button" class="filter-btn" data-award-filter="2018">2018</button>
+          <button type="button" class="filter-btn" data-award-filter="2017">2017</button>
+        </div>
+        <div class="awards-list" id="awardsList" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- 講義 -->
+    <section class="section section-alt" id="lectures">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>公開講義</h2>
+        </header>
+        <div class="lectures-grid" id="lecturesGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- 聯絡 -->
+    <section class="section section-contact" id="contact">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>聯絡方式</h2>
+        </header>
+        <div class="contact-card reveal">
+          <p class="contact-lead">歡迎透過下列方式聯繫合作或面談。</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:f24964034@gs.ncku.edu.tw">
+              <span class="contact-icon" aria-hidden="true">✉</span>
+              <span>
+                <small>Email</small>
+                f24964034@gs.ncku.edu.tw
+              </span>
+            </a>
+            <a class="contact-link" href="mailto:artgistim@gmail.com">
+              <span class="contact-icon" aria-hidden="true">✉</span>
+              <span>
+                <small>Email</small>
+                artgistim@gmail.com
+              </span>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/timcho-giser/" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon" aria-hidden="true">in</span>
+              <span>
+                <small>LinkedIn</small>
+                linkedin.com/in/timcho-giser
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> 卓易霆 Tim Cho</p>
+    </div>
+  </footer>
+
+  <button type="button" class="back-top" id="backTop" aria-label="回到頂部">↑</button>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="關閉">×</button>
+    <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="上一張">‹</button>
+    <button type="button" class="lightbox-next" id="lightboxNext" aria-label="下一張">›</button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" src="" alt="" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

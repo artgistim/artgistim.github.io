@@ -1,0 +1,491 @@
+{
+  "meta": {
+    "owner": "卓易霆 Tim Cho",
+    "linkedin": "https://www.linkedin.com/in/timcho-giser/",
+    "last_updated": "2026-08-09",
+    "note": "獎項彙整自履歷／作品集與公開新聞。LinkedIn 完整敘述若有更新可再對齊。",
+    "fields": {
+      "year": "年份",
+      "title": "獎項／賽事名稱",
+      "rank": "名次或獎等",
+      "issuer": "頒發／主辦單位",
+      "event": "所屬活動名稱",
+      "team": "團隊名稱（若有）",
+      "description": "作品與得獎敘述",
+      "links": "新聞稿、官方頁、作品 repo 等連結"
+    }
+  },
+  "awards": [
+    {
+      "id": "2024-townpass-microservice",
+      "year": 2024,
+      "title": "城市通微服務大黑客松",
+      "rank": "第一名",
+      "issuer": "臺北市政府資訊局（青年局協辦）",
+      "event": "2024 臺北秋季程式設計節",
+      "team": "Wee Won",
+      "description": "整合並開發捐血資訊微服務，提案創意營運方式；於 32 小時競賽中獲第一名。官方收錄得獎作品 repo（捐血資訊相關 microservice）。",
+      "work_summary": "城市通（TownPass）第三方微服務：捐血資訊整合與營運創意提案",
+      "links": [
+        {
+          "label": "官方得獎作品 GitHub",
+          "url": "https://github.com/taipei-doit/townpass2024-blood-donation",
+          "type": "demo"
+        },
+        {
+          "label": "市府活動新聞（競賽現場）",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&s=C4B988DEA4D4D1CF",
+          "type": "news"
+        }
+      ],
+      "tags": [
+        "hackathon",
+        "civic-tech",
+        "microservice",
+        "taipei"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio",
+        "public_web"
+      ]
+    },
+    {
+      "id": "2024-city-dashboard",
+      "year": 2024,
+      "title": "臺北城市儀表板大黑客松",
+      "rank": "第二名",
+      "issuer": "臺北市政府資訊局",
+      "event": "2024 臺北春季程式設計節",
+      "team": "Weeeee Chill（Vpon Wee Global Data Platform 數據研發團隊）",
+      "description": "以防救災資訊進行較細緻之空間分析獲第二名；頒獎場合有數發部長黃彥男等出席。Vpon 官方新聞稿公開亞軍成果。",
+      "work_summary": "城市儀表板模組：防救災資訊細粒度空間分析與視覺化",
+      "links": [
+        {
+          "label": "Vpon 官方新聞（亞軍）",
+          "url": "https://www.vpon.com/zh-hant/news/2024-codefest-taipei/",
+          "type": "news"
+        },
+        {
+          "label": "市府競賽結果新聞",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&s=F458045C13874DAE",
+          "type": "news"
+        },
+        {
+          "label": "中央社轉載",
+          "url": "https://www.cna.com.tw/postwrite/chi/375406",
+          "type": "news"
+        }
+      ],
+      "tags": [
+        "hackathon",
+        "dashboard",
+        "disaster",
+        "spatial",
+        "taipei"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio",
+        "public_web"
+      ]
+    },
+    {
+      "id": "2022-moi-hackathon",
+      "year": 2022,
+      "title": "內政黑客松",
+      "rank": "金獎",
+      "issuer": "內政部",
+      "event": "2022 資料創新應用競賽 · 內政黑客松",
+      "team": null,
+      "description": "以資料科學方法綜合分析社會經濟資料，以視覺化協助找尋弱勢族群與社福資源不足之處。",
+      "work_summary": "社會經濟 × 社福資源落差之空間資料科學與視覺化",
+      "links": [
+        {
+          "label": "內政部活動資訊（競賽制度）",
+          "url": "https://www.moi.gov.tw/News_Content.aspx?n=2905&s=258933",
+          "type": "official"
+        },
+        {
+          "label": "內政部統計雲 · 獲獎團隊頁",
+          "url": "https://segis.moi.gov.tw/STATCloud/ViewDetail?messageid=4818",
+          "type": "official"
+        }
+      ],
+      "tags": [
+        "hackathon",
+        "social-welfare",
+        "spatial",
+        "moi"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio",
+        "public_web"
+      ]
+    },
+    {
+      "id": "2021-space-hackathon",
+      "year": 2021,
+      "title": "太空黑客松（台灣太空黑客松）",
+      "rank": "第一名",
+      "issuer": "國家太空中心／相關主辦單位",
+      "event": "2021 台灣太空黑客松 · 創意發想大賽",
+      "team": "KOH",
+      "description": "以衛星／太空相關資料進行創意應用分析，獲台灣太空黑客松第一名。",
+      "work_summary": "太空／衛星資料創意應用",
+      "links": [
+        {
+          "label": "國家中山科學研究院相關報導",
+          "url": "https://www.niar.org.tw/xmdoc/cont?sid=0L157748320120114896&xsmsid=0I148622737263495777",
+          "type": "news"
+        },
+        {
+          "label": "產業新聞轉載",
+          "url": "https://www.ctimes.com.tw/DispArt/tw/%E8%A1%9B%E6%98%9F/%E7%A7%91%E6%8A%80%E9%83%A8/2106061134DF.shtml",
+          "type": "news"
+        }
+      ],
+      "tags": [
+        "hackathon",
+        "space",
+        "satellite"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio",
+        "public_web"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2020-data-creative-pitch",
+      "year": 2020,
+      "title": "數據創意提案大賽",
+      "rank": "第一名",
+      "issuer": "企業主辦（商業行銷數據應用）",
+      "event": "2020 數據創意提案大賽 · 商業行銷數據應用",
+      "team": null,
+      "description": "應用旅遊與票券相關數據進行用戶分析（含 RFM）、流量與購買關聯，並以地理 3D 視覺化支援行銷策略，獲第一名。",
+      "work_summary": "商業數據分析 + 地理 3D 視覺化（旅遊／票券場景）",
+      "links": [],
+      "tags": [
+        "competition",
+        "marketing-data",
+        "3d-viz",
+        "rfm"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2019-tainan-smart-city-viz",
+      "year": 2019,
+      "title": "臺南智慧城市資料視覺應用挑戰賽",
+      "rank": "第一名",
+      "issuer": "臺南市政府（智慧城市相關單位）",
+      "event": "2019 臺南智慧城市資料視覺應用挑戰賽",
+      "team": "KOH（卓易霆、藍雲瀚、郭浩傑）",
+      "description": "以社區中心及社福據點資料結合高齡城市議題，視覺化呈現臺南各區資源分布，獲第一名。後續與台南市政府有公民科技成果展等合作。",
+      "work_summary": "高齡 × 社福據點資源之資料視覺化",
+      "links": [
+        {
+          "label": "中央社新聞",
+          "url": "https://www.cna.com.tw/news/aloc/201903240176.aspx",
+          "type": "news"
+        },
+        {
+          "label": "中時新聞",
+          "url": "https://www.chinatimes.com/realtimenews/20190324002507-260405",
+          "type": "news"
+        },
+        {
+          "label": "成大都計系報導",
+          "url": "https://www.up.ncku.edu.tw/%E5%8F%B0%E5%8D%97%E6%99%BA%E6%85%A7%E5%9F%8E%E5%B8%82%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E6%87%89%E7%94%A8%E6%8C%91%E6%88%B0%E8%B3%BD-%E8%AE%93%E5%B8%82%E6%94%BF%E6%9B%B4%E5%89%B5%E6%96%B0/",
+          "type": "news"
+        }
+      ],
+      "tags": [
+        "hackathon",
+        "aging",
+        "visualization",
+        "tainan"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio",
+        "public_web"
+      ]
+    },
+    {
+      "id": "2019-energy-data-contest",
+      "year": 2019,
+      "title": "經濟能源資料零距離創意競賽",
+      "rank": "第一名",
+      "issuer": "經濟部",
+      "event": "經濟能源資料零距離創意競賽",
+      "team": null,
+      "description": "運用經濟與能源開放資料提出創意應用方案，獲經濟部主辦競賽第一名。",
+      "work_summary": "經濟／能源開放資料創意應用",
+      "links": [],
+      "tags": [
+        "competition",
+        "energy-data",
+        "moea"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2018-labor-hackathon",
+      "year": 2018,
+      "title": "勞動黑客松",
+      "rank": "第二名",
+      "issuer": "勞動部",
+      "event": "勞動黑客松",
+      "team": null,
+      "description": "運用勞動部開放資料，以民眾視角提出就業／勞動相關創新應用，獲第二名。",
+      "work_summary": "勞動開放資料創新應用",
+      "links": [
+        {
+          "label": "勞動部活動紀錄（Facebook）",
+          "url": "https://www.facebook.com/mol.labor/posts/2053068398083771",
+          "type": "news"
+        }
+      ],
+      "tags": [
+        "hackathon",
+        "labor",
+        "open-data"
+      ],
+      "featured": false,
+      "sources": [
+        "resume",
+        "portfolio",
+        "public_web"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2018-smart-city-hack-idhub",
+      "year": 2018,
+      "title": "智慧城市黑客松",
+      "rank": "IDHub 應用獎",
+      "issuer": "企業主辦",
+      "event": "智慧城市黑客松",
+      "team": null,
+      "description": "智慧城市場景下的資料應用提案，獲 IDHub 應用獎。",
+      "work_summary": "智慧城市 × IDHub 應用",
+      "links": [],
+      "tags": [
+        "hackathon",
+        "smart-city"
+      ],
+      "featured": false,
+      "sources": [
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2017-asia-transnational-hackathon",
+      "year": 2017,
+      "title": "亞洲跨國黑客松",
+      "rank": "台灣研發獎勵（首獎）",
+      "issuer": "經濟部工業局",
+      "event": "亞洲跨國黑客松",
+      "team": null,
+      "description": "從長照 2.0 與 ABC 據點出發，結合開放資料指認空間區位，獲台灣研發獎勵（首獎），並與泰、日、韓交流成果。",
+      "work_summary": "長照 2.0 × 開放資料 × 區位指認",
+      "links": [],
+      "tags": [
+        "hackathon",
+        "long-term-care",
+        "open-data",
+        "international"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio",
+        "public_web"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2017-taichung-smart-city",
+      "year": 2017,
+      "title": "臺中市智慧城市創意設計競賽",
+      "rank": "金獎（創意組）",
+      "issuer": "臺中市政府",
+      "event": "臺中市智慧城市創意設計競賽 · 創意組",
+      "team": null,
+      "description": "以公民科技概念切入及 GIS 地方化遊戲體驗獲創意組金獎。同年另有數位文化地景實驗計畫〈在看得見的臺中看見城市高齡化〉等相關展演紀錄。",
+      "work_summary": "公民科技 × GIS 地方化體驗（高齡議題）",
+      "links": [
+        {
+          "label": "The News Lens 共同撰文（高齡友善空間）",
+          "url": "https://www.thenewslens.com/article/95505",
+          "type": "article"
+        }
+      ],
+      "tags": [
+        "competition",
+        "civic-tech",
+        "gis",
+        "taichung",
+        "aging"
+      ],
+      "featured": true,
+      "sources": [
+        "resume",
+        "portfolio",
+        "public_web"
+      ]
+    },
+    {
+      "id": "2017-ntu-hackathon-ctbc",
+      "year": 2017,
+      "title": "台大黑客松 · 中信金控 Data 神機妙算",
+      "rank": "銀獎",
+      "issuer": "台大黑客松／中信金控",
+      "event": "台大黑客松",
+      "team": null,
+      "description": "台大黑客松中信金控 Data 神機妙算主題，以數據分析提出創新方案，獲銀獎。",
+      "work_summary": "金融數據相關黑客松作品",
+      "links": [],
+      "tags": [
+        "hackathon",
+        "fintech",
+        "data"
+      ],
+      "featured": false,
+      "sources": [
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2017-taoyuan-opendata",
+      "year": 2017,
+      "title": "桃園開放資料創意應用競賽",
+      "rank": "銀桃獎",
+      "issuer": "桃園市政府",
+      "event": "桃園開放資料創意應用競賽",
+      "team": null,
+      "description": "運用桃園開放資料提出創意應用，獲銀桃獎。",
+      "work_summary": "開放資料創意應用",
+      "links": [],
+      "tags": [
+        "competition",
+        "open-data",
+        "taoyuan"
+      ],
+      "featured": false,
+      "sources": [
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2017-hsinchu-hackathon",
+      "year": 2017,
+      "title": "新竹黑客松 · 消費支出與生活品質組",
+      "rank": "優勝",
+      "issuer": "新竹地方政府相關單位",
+      "event": "新竹黑客松",
+      "team": null,
+      "description": "消費支出與生活品質議題之資料應用，獲優勝。",
+      "work_summary": "消費支出與生活品質資料應用",
+      "links": [],
+      "tags": [
+        "hackathon",
+        "open-data",
+        "hsinchu"
+      ],
+      "featured": false,
+      "sources": [
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2017-chiayi-hackathon",
+      "year": 2017,
+      "title": "嘉義黑蚵松 · 交通觀光組",
+      "rank": "第三名",
+      "issuer": "嘉義地方政府相關單位",
+      "event": "嘉義黑蚵松",
+      "team": null,
+      "description": "交通觀光組資料應用提案，獲第三名。",
+      "work_summary": "交通觀光資料應用",
+      "links": [],
+      "tags": [
+        "hackathon",
+        "tourism",
+        "chiayi"
+      ],
+      "featured": false,
+      "sources": [
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2017-agri-hackathon",
+      "year": 2017,
+      "title": "農業創新黑客松",
+      "rank": "銅獎 · 優質農創獎",
+      "issuer": "農委會（農業部前身）",
+      "event": "農業創新黑客松",
+      "team": null,
+      "description": "農業創新資料應用提案，獲銅獎與優質農創獎。",
+      "work_summary": "農業創新資料應用",
+      "links": [],
+      "tags": [
+        "hackathon",
+        "agriculture"
+      ],
+      "featured": false,
+      "sources": [
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    },
+    {
+      "id": "2018-presidential-hackathon-guest",
+      "year": 2018,
+      "title": "總統盃黑客松（觀賽貴賓／成果報告）",
+      "rank": "受邀觀賽與報告",
+      "issuer": "行政院／總統盃黑客松",
+      "event": "2018 總統盃黑客松決賽",
+      "team": "國土巡守隊相關協力",
+      "description": "受邀參與 2018 總統盃黑客松決賽，與國土巡守隊就國土監控策略進行成果交流與報告。",
+      "work_summary": "國土監控策略簡報與公民科技交流",
+      "links": [],
+      "tags": [
+        "honor",
+        "presidential-hackathon",
+        "civic-tech"
+      ],
+      "featured": false,
+      "sources": [
+        "portfolio"
+      ],
+      "needs_linkedin_confirm": true
+    }
+  ]
+}
