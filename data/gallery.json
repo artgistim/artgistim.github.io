@@ -163,15 +163,6 @@
       "desc": "數億 GPS 轉 GeoTIFF 網格運算，加速熱度圖細緻化。"
     },
     {
-      "id": "path",
-      "title": "Path Tracing 軌跡重現",
-      "category": "spatial traffic",
-      "badge": "Track",
-      "image": "assets/works/urban-vibrant.jpg",
-      "thumb": "assets/thumbs/urban-vibrant.jpg",
-      "desc": "GPS 軌跡線性呈現運動熱點（示意以公開社群軌跡概念）。"
-    },
-    {
       "id": "aoi",
       "title": "Google AOI 向量化",
       "category": "spatial",
