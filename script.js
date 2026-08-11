@@ -197,21 +197,6 @@
   let portfolioLightboxItems = [];
   let awardLightboxItems = [];
 
-  function bindPortfolioFilters() {
-    const filterBtns = document.querySelectorAll("#portfolio .filter-btn");
-    filterBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const filter = btn.dataset.filter || "all";
-        filterBtns.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        portfolioGrid?.querySelectorAll(".port-card").forEach((card) => {
-          const cats = (card.dataset.category || "").split(/\s+/);
-          card.classList.toggle("hidden", !(filter === "all" || cats.includes(filter)));
-        });
-      });
-    });
-  }
-
   function renderPortfolio(items) {
     if (!portfolioGrid) return;
     portfolioLightboxItems = items.map((p) => ({
@@ -224,7 +209,7 @@
         const imgSrc = idx < 6 ? p.image || p.thumb : p.thumb || p.image;
         const workId = escapeHtml(p.id || `work-${idx}`);
         return `
-<article class="port-card port-card-visual reveal" id="work-${workId}" data-work-id="${workId}" data-category="${escapeHtml(p.category || "")}" data-idx="${idx}">
+<article class="port-card port-card-visual reveal" id="work-${workId}" data-work-id="${workId}" data-idx="${idx}">
   <div class="port-media">
     <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" loading="${idx < 4 ? "eager" : "lazy"}" />
     <div class="port-media-overlay">
@@ -242,7 +227,6 @@
     portfolioGrid.querySelectorAll(".port-card-visual").forEach((card) => {
       card.addEventListener("click", () => openLightbox(portfolioLightboxItems, Number(card.dataset.idx) || 0));
     });
-    bindPortfolioFilters();
     observeReveals(portfolioGrid);
     // 若從首頁 showcase 錨點進入，高亮對應作品卡
     highlightWorkFromHash();
@@ -253,15 +237,7 @@
     if (!hash.startsWith("#work-")) return;
     const card = document.querySelector(hash);
     if (!card) return;
-    // 若該卡被篩選隱藏，先切回「全部」
-    if (card.classList.contains("hidden")) {
-      document.querySelectorAll("#portfolio .filter-btn").forEach((b) => {
-        b.classList.toggle("active", b.dataset.filter === "all");
-      });
-      portfolioGrid?.querySelectorAll(".port-card").forEach((c) => c.classList.remove("hidden"));
-    }
     card.classList.add("port-card-target");
-    // 等版面穩定後再 scroll（圖片／reveal 動畫）
     requestAnimationFrame(() => {
       card.scrollIntoView({ behavior: "smooth", block: "center" });
     });
