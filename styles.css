@@ -955,6 +955,24 @@ button {
   display: none;
 }
 
+/* 從首頁 showcase 錨點跳轉時短暫高亮 */
+.port-card-target {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow) !important;
+  transform: translateY(-4px);
+  animation: port-target-pulse 1.6s ease;
+}
+
+@keyframes port-target-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow);
+  }
+  50% {
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 22%, transparent), var(--shadow);
+  }
+}
+
 .port-media {
   position: relative;
   aspect-ratio: 16 / 11;

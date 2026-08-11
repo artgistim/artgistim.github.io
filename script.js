@@ -222,8 +222,9 @@
     portfolioGrid.innerHTML = items
       .map((p, idx) => {
         const imgSrc = idx < 6 ? p.image || p.thumb : p.thumb || p.image;
+        const workId = escapeHtml(p.id || `work-${idx}`);
         return `
-<article class="port-card port-card-visual reveal" data-category="${escapeHtml(p.category || "")}" data-idx="${idx}">
+<article class="port-card port-card-visual reveal" id="work-${workId}" data-work-id="${workId}" data-category="${escapeHtml(p.category || "")}" data-idx="${idx}">
   <div class="port-media">
     <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" loading="${idx < 4 ? "eager" : "lazy"}" />
     <div class="port-media-overlay">
@@ -243,7 +244,31 @@
     });
     bindPortfolioFilters();
     observeReveals(portfolioGrid);
+    // 若從首頁 showcase 錨點進入，高亮對應作品卡
+    highlightWorkFromHash();
   }
+
+  function highlightWorkFromHash() {
+    const hash = window.location.hash || "";
+    if (!hash.startsWith("#work-")) return;
+    const card = document.querySelector(hash);
+    if (!card) return;
+    // 若該卡被篩選隱藏，先切回「全部」
+    if (card.classList.contains("hidden")) {
+      document.querySelectorAll("#portfolio .filter-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.filter === "all");
+      });
+      portfolioGrid?.querySelectorAll(".port-card").forEach((c) => c.classList.remove("hidden"));
+    }
+    card.classList.add("port-card-target");
+    // 等版面穩定後再 scroll（圖片／reveal 動畫）
+    requestAnimationFrame(() => {
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    window.setTimeout(() => card.classList.remove("port-card-target"), 2200);
+  }
+
+  window.addEventListener("hashchange", highlightWorkFromHash);
 
   function renderAwardPhotos(photos) {
     if (!awardPhotosRail) return;
