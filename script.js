@@ -360,6 +360,17 @@
   /* Lectures */
   const lecturesGrid = document.getElementById("lecturesGrid");
 
+  /** 講義日期只顯示年、月（不顯示日） */
+  function formatLectureYearMonth(dateStr, yearFallback) {
+    if (dateStr && /^\d{4}-\d{2}/.test(dateStr)) {
+      const [y, m] = dateStr.split("-");
+      const month = String(Number(m));
+      return `${y}年${month}月`;
+    }
+    if (yearFallback) return `${yearFallback}年`;
+    return "";
+  }
+
   function renderLectures(lectures) {
     if (!lecturesGrid) return;
     const sorted = [...lectures].sort((a, b) => (b.year || 0) - (a.year || 0));
@@ -369,6 +380,7 @@
         const topics = Array.isArray(lec.topics) ? lec.topics : [];
         const outline = Array.isArray(lec.outline) ? lec.outline : [];
         const file = escapeHtml(lec.file || "#");
+        const ym = formatLectureYearMonth(lec.date, lec.year);
         return `
 <article class="lecture-card reveal">
   <div class="lecture-top">
@@ -376,7 +388,7 @@
   </div>
   <h3>${escapeHtml(lec.title)}</h3>
   ${lec.title_en ? `<p class="lecture-sub">${escapeHtml(lec.title_en)}</p>` : ""}
-  <p class="lecture-meta">${escapeHtml(lec.date || "")}</p>
+  <p class="lecture-meta">${escapeHtml(ym)}</p>
   <p class="lecture-summary">${escapeHtml(lec.summary || "")}</p>
   ${
     outline.length
