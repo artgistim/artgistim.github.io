@@ -199,6 +199,15 @@
       "desc": "線轉面拓樸後與人流網格交集，萃取各時段人行道使用特徵。"
     },
     {
+      "id": "urban-vibrant",
+      "title": "Urban Vibrant 商業熱區",
+      "category": "spatial viz",
+      "badge": "POI",
+      "image": "assets/works/path-tracing.jpg",
+      "thumb": "assets/thumbs/path-tracing.jpg",
+      "desc": "POI 評論與評等 × 耗電／綠地，評估活動熱絡場所。"
+    },
+    {
       "id": "tod",
       "title": "碩士論文 · 捷運 TOD",
       "category": "spatial",
@@ -215,15 +224,6 @@
       "image": "assets/works/nasa-art.jpg",
       "thumb": "assets/thumbs/nasa-art.jpg",
       "desc": "NASA 黑客松：衛星影像與地表溫度後製之地圖藝術創作。"
-    },
-    {
-      "id": "urban-vibrant",
-      "title": "Urban Vibrant 商業熱區",
-      "category": "spatial viz",
-      "badge": "POI",
-      "image": "assets/works/path-tracing.jpg",
-      "thumb": "assets/thumbs/path-tracing.jpg",
-      "desc": "POI 評論與評等 × 耗電／綠地，評估活動熱絡場所。"
     }
   ]
 }
