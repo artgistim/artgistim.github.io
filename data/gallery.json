@@ -182,7 +182,7 @@
     },
     {
       "id": "spatial-unit",
-      "title": "空間單元標準化",
+      "title": "分析空間單元標準化",
       "category": "traffic spatial",
       "badge": "TDX",
       "image": "assets/works/spatial-unit.jpg",
