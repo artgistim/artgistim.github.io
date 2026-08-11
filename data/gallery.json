@@ -73,6 +73,15 @@
   ],
   "portfolio": [
     {
+      "id": "spatial-unit",
+      "title": "交通流及人流疊合分析",
+      "category": "traffic spatial",
+      "badge": "TDX",
+      "image": "assets/works/spatial-unit.jpg",
+      "thumb": "assets/thumbs/spatial-unit.jpg",
+      "desc": "公車動態 GPS 與人流資料統一空間單元後交叉分析。"
+    },
+    {
       "id": "urban-vibrant",
       "title": "Urban Vibrant 商業熱區",
       "category": "spatial viz",
@@ -179,15 +188,6 @@
       "image": "assets/works/geo-cluster.jpg",
       "thumb": "assets/thumbs/geo-cluster.jpg",
       "desc": "將商業熱區影像轉換向量圖徵，並與周圍特徵進行 Kmeans 分群。"
-    },
-    {
-      "id": "spatial-unit",
-      "title": "分析空間單元標準化",
-      "category": "traffic spatial",
-      "badge": "TDX",
-      "image": "assets/works/spatial-unit.jpg",
-      "thumb": "assets/thumbs/spatial-unit.jpg",
-      "desc": "公車 GPS 頻率與人流資料統一空間單元交叉比對。"
     },
     {
       "id": "segment",
