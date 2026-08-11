@@ -167,8 +167,8 @@
       "title": "Google AOI 向量化",
       "category": "spatial",
       "badge": "AOI",
-      "image": "assets/works/google-aoi.jpg",
-      "thumb": "assets/thumbs/google-aoi.jpg",
+      "image": "assets/works/geo-cluster.jpg",
+      "thumb": "assets/thumbs/geo-cluster.jpg",
       "desc": "QGIS 將商業熱區影像轉向量，利於後續地理分析。"
     },
     {
