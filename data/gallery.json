@@ -169,16 +169,7 @@
       "badge": "AOI",
       "image": "assets/works/geo-cluster.jpg",
       "thumb": "assets/thumbs/geo-cluster.jpg",
-      "desc": "QGIS 將商業熱區影像轉向量，利於後續地理分析。"
-    },
-    {
-      "id": "cluster",
-      "title": "地理特徵分群",
-      "category": "spatial",
-      "badge": "Cluster",
-      "image": "assets/works/geo-cluster.jpg",
-      "thumb": "assets/thumbs/geo-cluster.jpg",
-      "desc": "人口、學校、綠地、交通 × 商業熱區 K-means 類聚。"
+      "desc": "將商業熱區影像轉換向量圖徵，並與周圍特徵進行 Kmeans 分群。"
     },
     {
       "id": "spatial-unit",
