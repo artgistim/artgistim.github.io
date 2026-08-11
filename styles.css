@@ -375,6 +375,21 @@ button {
   gap: 0.75rem;
 }
 
+/* 首頁「聯絡方式」：扁、小一點 */
+.hero-cta .btn {
+  padding: 0.42rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: 999px;
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--glow) 55%, transparent);
+}
+
+.hero-cta .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--glow);
+}
+
 /* Hero showcase — 作品為主角 */
 .hero-showcase {
   display: grid;
@@ -1826,11 +1841,11 @@ button {
   }
 
   .hero-cta {
-    flex-direction: column;
+    flex-direction: row;
   }
 
-  .btn {
-    width: 100%;
+  .hero-cta .btn {
+    width: auto;
   }
 }
 
