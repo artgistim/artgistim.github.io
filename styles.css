@@ -971,6 +971,29 @@ button {
   aspect-ratio: 16 / 10;
 }
 
+/* 網頁版：Artify / NASA 作品佔約 2–3 欄寬 */
+@media (min-width: 900px) {
+  #work-nasa-art {
+    grid-column: 1 / -1;
+  }
+
+  #work-nasa-art .port-media {
+    aspect-ratio: 21 / 9;
+    min-height: 280px;
+  }
+
+  #work-nasa-art .port-body {
+    max-width: 52rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  #work-nasa-art .port-media {
+    aspect-ratio: 2.4 / 1;
+    min-height: 320px;
+  }
+}
+
 .port-card {
   background: var(--surface);
   border: 1px solid var(--border);
