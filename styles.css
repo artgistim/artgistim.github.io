@@ -1038,14 +1038,24 @@ button {
 }
 
 /* ========== Award photo rail ========== */
+/* 標題與照片貼近，整區略往上 */
+#awards.section {
+  padding-top: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+#awards .section-header {
+  margin-bottom: 0.85rem;
+}
+
 .award-photos-rail {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: minmax(180px, 210px);
   gap: 0.75rem;
   overflow-x: auto;
-  padding: 0.2rem 0.1rem 1rem;
-  margin-bottom: 1.1rem;
+  padding: 0 0.1rem 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0.85rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
@@ -1073,6 +1083,8 @@ button {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  /* 合照偏上裁切：多露人臉與舞台背景，少露地板 */
+  object-position: center 22%;
   display: block;
   filter: saturate(1.05);
 }
