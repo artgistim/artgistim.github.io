@@ -167,8 +167,8 @@
       "title": "Path Tracing 軌跡重現",
       "category": "spatial traffic",
       "badge": "Track",
-      "image": "assets/works/path-tracing.jpg",
-      "thumb": "assets/thumbs/path-tracing.jpg",
+      "image": "assets/works/urban-vibrant.jpg",
+      "thumb": "assets/thumbs/urban-vibrant.jpg",
       "desc": "GPS 軌跡線性呈現運動熱點（示意以公開社群軌跡概念）。"
     },
     {
@@ -230,8 +230,8 @@
       "title": "Urban Vibrant 商業熱區",
       "category": "spatial viz",
       "badge": "POI",
-      "image": "assets/works/urban-vibrant.jpg",
-      "thumb": "assets/thumbs/urban-vibrant.jpg",
+      "image": "assets/works/path-tracing.jpg",
+      "thumb": "assets/thumbs/path-tracing.jpg",
       "desc": "POI 評論與評等 × 耗電／綠地，評估活動熱絡場所。"
     }
   ]
