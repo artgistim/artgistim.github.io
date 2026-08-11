@@ -286,8 +286,10 @@ button {
 
 .hero-title {
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.55rem 0.75rem;
   margin-bottom: 0;
 }
 
@@ -300,10 +302,16 @@ button {
 
 .name-en {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
   font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: 0.16em;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+[data-theme="light"] .name-en {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.35);
 }
 
 .hero-highlights {
