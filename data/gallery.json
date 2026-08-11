@@ -5,6 +5,12 @@
   },
   "awards_photos": [
     {
+      "src": "assets/awards/award-09.jpg",
+      "thumb": "assets/thumbs/award-09.jpg",
+      "caption": "商業行銷數據提案評審團大獎",
+      "year": 2019
+    },
+    {
       "src": "assets/awards/award-07.jpg",
       "thumb": "assets/thumbs/award-07.jpg",
       "caption": "2024 臺北城市儀表板大黑客松 · 第二名頒獎合照",
@@ -57,12 +63,6 @@
       "thumb": "assets/thumbs/award-02.jpg",
       "caption": "競賽與交流合影",
       "year": 2017
-    },
-    {
-      "src": "assets/awards/award-09.jpg",
-      "thumb": "assets/thumbs/award-09.jpg",
-      "caption": "資料視覺化競賽現場",
-      "year": 2019
     },
     {
       "src": "assets/awards/award-11.jpg",
