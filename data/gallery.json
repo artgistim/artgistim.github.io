@@ -73,6 +73,15 @@
   ],
   "portfolio": [
     {
+      "id": "segment",
+      "title": "人行道人流分析",
+      "category": "spatial traffic",
+      "badge": "Segment",
+      "image": "assets/works/segment-extract.jpg",
+      "thumb": "assets/thumbs/segment-extract.jpg",
+      "desc": "將人行道拓樸後與人流交集分析，擷取各時段的分量呈現。"
+    },
+    {
       "id": "od",
       "title": "O-D 起訖動向分析",
       "category": "traffic spatial",
@@ -188,15 +197,6 @@
       "image": "assets/works/geo-cluster.jpg",
       "thumb": "assets/thumbs/geo-cluster.jpg",
       "desc": "將商業熱區影像轉換向量圖徵，並與周圍特徵進行 Kmeans 分群。"
-    },
-    {
-      "id": "segment",
-      "title": "人行道使用率分析",
-      "category": "spatial traffic",
-      "badge": "Segment",
-      "image": "assets/works/segment-extract.jpg",
-      "thumb": "assets/thumbs/segment-extract.jpg",
-      "desc": "線轉面拓樸後與人流網格交集，萃取各時段人行道使用特徵。"
     },
     {
       "id": "tod",
