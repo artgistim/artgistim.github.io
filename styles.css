@@ -728,50 +728,61 @@ button {
   }
 }
 
-/* ========== Skills ========== */
+/* ========== Skills（緊湊版） ========== */
+#skills.section {
+  padding-top: clamp(2rem, 4.5vw, 3rem);
+  padding-bottom: clamp(2rem, 4.5vw, 3rem);
+}
+
+#skills .section-header {
+  margin-bottom: 0.85rem;
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.1rem;
+  gap: 0.65rem;
 }
 
 .skill-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 0.95rem;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .skill-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
   box-shadow: var(--shadow);
 }
 
 .skill-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.55rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
   letter-spacing: 0.02em;
+  line-height: 1.3;
 }
 
 .skill-card p {
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.45;
 }
 
 .skill-tags,
 .tech-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.3rem;
 }
 
 .skill-tags span,
 .tech-list span {
-  font-size: 0.75rem;
-  padding: 0.28rem 0.65rem;
+  font-size: 0.68rem;
+  padding: 0.18rem 0.5rem;
   border-radius: 999px;
   background: var(--accent-soft);
   color: var(--accent);
@@ -779,13 +790,13 @@ button {
 }
 
 .tech-bar {
-  margin-top: 1.5rem;
-  padding: 1rem 0 0;
+  margin-top: 0.75rem;
+  padding: 0.65rem 0 0;
   border-top: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.45rem;
 }
 
 /* ========== Timeline ========== */
