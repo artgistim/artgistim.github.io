@@ -137,12 +137,12 @@
     },
     {
       "id": "growth",
-      "title": "消費成長比較視覺化",
+      "title": "商家消費成長比較視覺化",
       "category": "viz",
       "badge": "Growth",
       "image": "assets/works/growth-compare.jpg",
       "thumb": "assets/thumbs/growth-compare.jpg",
-      "desc": "電子發票 × Geocoding × 區位商數，時間軸圓圈呈現成長動能。"
+      "desc": "電子發票 × 區位商數分析，配合時間軸圓圈呈現消長動能。"
     },
     {
       "id": "urban-comp",
