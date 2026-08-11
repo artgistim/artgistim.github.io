@@ -73,6 +73,15 @@
   ],
   "portfolio": [
     {
+      "id": "urban-vibrant",
+      "title": "Urban Vibrant 商業熱區",
+      "category": "spatial viz",
+      "badge": "POI",
+      "image": "assets/works/path-tracing.jpg",
+      "thumb": "assets/thumbs/path-tracing.jpg",
+      "desc": "POI 評論與評等 × 耗電／綠地，評估活動熱絡場所。"
+    },
+    {
       "id": "arc-hop",
       "title": "人流 Arc-hop 分析",
       "category": "traffic",
@@ -188,15 +197,6 @@
       "image": "assets/works/segment-extract.jpg",
       "thumb": "assets/thumbs/segment-extract.jpg",
       "desc": "線轉面拓樸後與人流網格交集，萃取各時段人行道使用特徵。"
-    },
-    {
-      "id": "urban-vibrant",
-      "title": "Urban Vibrant 商業熱區",
-      "category": "spatial viz",
-      "badge": "POI",
-      "image": "assets/works/path-tracing.jpg",
-      "thumb": "assets/thumbs/path-tracing.jpg",
-      "desc": "POI 評論與評等 × 耗電／綠地，評估活動熱絡場所。"
     },
     {
       "id": "tod",
