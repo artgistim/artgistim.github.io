@@ -206,12 +206,15 @@
 
     portfolioGrid.innerHTML = items
       .map((p, idx) => {
-        const imgSrc = idx < 6 ? p.image || p.thumb : p.thumb || p.image;
+        const isWide = p.id === "nasa-art";
+        // 寬版卡片與前幾張一律用原圖，避免 thumb 太小看不出放大
+        const imgSrc = isWide || idx < 6 ? p.image || p.thumb : p.thumb || p.image;
         const workId = escapeHtml(p.id || `work-${idx}`);
+        const wideClass = isWide ? " port-card-wide" : "";
         return `
-<article class="port-card port-card-visual reveal" id="work-${workId}" data-work-id="${workId}" data-idx="${idx}">
+<article class="port-card port-card-visual reveal${wideClass}" id="work-${workId}" data-work-id="${workId}" data-idx="${idx}">
   <div class="port-media">
-    <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" loading="${idx < 4 ? "eager" : "lazy"}" />
+    <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" loading="${idx < 4 || isWide ? "eager" : "lazy"}" />
     <div class="port-media-overlay">
       <span class="port-badge">${escapeHtml(p.badge || "")}</span>
     </div>
