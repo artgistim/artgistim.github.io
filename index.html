@@ -24,9 +24,10 @@
       </button>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#about" class="nav-link">關於</a></li>
+        <li><a href="#star" class="nav-link">實績</a></li>
+        <li><a href="#skills" class="nav-link">專長</a></li>
         <li><a href="#portfolio" class="nav-link">作品</a></li>
         <li><a href="#experience" class="nav-link">經歷</a></li>
-        <li><a href="#skills" class="nav-link">專長</a></li>
         <li><a href="#awards" class="nav-link">獎項</a></li>
         <li><a href="#lectures" class="nav-link">講義</a></li>
         <li><a href="#contact" class="nav-link">聯絡</a></li>
@@ -141,15 +142,147 @@
               <span class="stat-num" data-count="15">0</span>
               <span class="stat-label">+ 黑客松獎項</span>
             </div>
-            <div class="stat-card">
-              <span class="stat-num" data-count="300">0</span>
-              <span class="stat-suffix">萬</span>
-              <span class="stat-label">年省委外經費</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAR 實績案例（自介後） -->
+    <section class="section section-alt" id="star">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>實績案例</h2>
+          <p class="section-sub">STAR · Situation / Task / Action / Result — 四段職涯的可量化成果</p>
+        </header>
+        <div class="star-grid">
+          <article class="star-card reveal">
+            <div class="star-card-top">
+              <span class="star-org">Vpon 威朋大數據</span>
+              <h3>AI 代理人與數據重構</h3>
             </div>
-            <div class="stat-card">
-              <span class="stat-num" data-count="4">0</span>
-              <span class="stat-label">段職涯歷練</span>
+            <dl class="star-steps">
+              <div>
+                <dt>痛點</dt>
+                <dd>一次性分析重複開發繁瑣，客製交付需 2–3 週。</dd>
+              </div>
+              <div>
+                <dt>行動</dt>
+                <dd>打造 AI Agent 與分析模組化流程，並開發輕量離線儀表板（Python + SQLite）。</dd>
+              </div>
+              <div>
+                <dt>成果</dt>
+                <dd>分析模組可重複執行，專案彈性提升，交付週期縮短至約 1 週。</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="star-card reveal">
+            <div class="star-card-top">
+              <span class="star-org">微程式資訊</span>
+              <h3>營運經驗數據化</h3>
             </div>
+            <dl class="star-steps">
+              <div>
+                <dt>痛點</dt>
+                <dd>YouBike 尖峰調度與選址過度依賴人員經驗，難以複製擴張。</dd>
+              </div>
+              <div>
+                <dt>行動</dt>
+                <dd>融合營運數據與地理 Open Data，建立 AI 流量預測與調度分派模型。</dd>
+              </div>
+              <div>
+                <dt>成果</dt>
+                <dd>由被動轉為主動調度，營運分析每週至少省下 4–8 小時，並向捷安特高層簡報。</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="star-card reveal">
+            <div class="star-card-top">
+              <span class="star-org">國家住都中心</span>
+              <h3>複雜議題處理與專案優化</h3>
+            </div>
+            <dl class="star-steps">
+              <div>
+                <dt>痛點</dt>
+                <dd>接手委外舊案、無交接文件造成知識斷層，套裝軟體授權成本高。</dd>
+              </div>
+              <div>
+                <dt>行動</dt>
+                <dd>於實體隔離（Air-gapped）環境部署 Python／QGIS 分析模組，建立一鍵產報與知識庫。</dd>
+              </div>
+              <div>
+                <dt>成果</dt>
+                <dd>執行更高效、知識可傳承；獲內政部記功 2 次。</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="star-card reveal">
+            <div class="star-card-top">
+              <span class="star-org">長豐工程顧問</span>
+              <h3>減少人工作業、提高產能</h3>
+            </div>
+            <dl class="star-steps">
+              <div>
+                <dt>痛點</dt>
+                <dd>都市計畫書圖高度依賴人工鍵入數值與反覆核對。</dd>
+              </div>
+              <div>
+                <dt>行動</dt>
+                <dd>以技師專業整合 CAD 與程式，將數值與表格自動帶入圖面。</dd>
+              </div>
+              <div>
+                <dt>成果</dt>
+                <dd>產出效率提升，圖表數值零誤植。</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 專長（往前，緊接實績） -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>核心專長</h2>
+        </header>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3>資料整合與流程自動化</h3>
+            <p>Python ETL、AI Agent、模組化分析。客製分析交付由 2–3 週縮短至 1 週，並可自動化規格書與報告產出。</p>
+            <div class="skill-tags">
+              <span>Python</span><span>AI Agent</span><span>ETL</span><span>SQLite</span>
+            </div>
+          </article>
+          <article class="skill-card reveal">
+            <h3>決策儀表板與營運優化</h3>
+            <p>整合億級異質數據，交付互動／離線儀表板與 KPI 預警，降低決策延遲、加速跨部門協作。</p>
+            <div class="skill-tags">
+              <span>Tableau</span><span>Power BI</span><span>GCP</span><span>Kepler.gl</span>
+            </div>
+          </article>
+          <article class="skill-card reveal">
+            <h3>GIS 與都市計畫</h3>
+            <p>土地變更、產業政策、法規研析與成本效益評估；結合空間分析與資料科學解析都市議題。</p>
+            <div class="skill-tags">
+              <span>QGIS</span><span>ArcGIS</span><span>GeoJSON</span><span>法規</span>
+            </div>
+          </article>
+          <article class="skill-card reveal">
+            <h3>專案管控與 Root Cause</h3>
+            <p>複雜需求拆解、跨團隊協調、PoC 驗證。曾主導經濟部智慧城鄉科專（總經費 3,311 萬）。</p>
+            <div class="skill-tags">
+              <span>PM</span><span>PoC</span><span>Capex</span><span>Agile</span>
+            </div>
+          </article>
+        </div>
+        <div class="tech-bar reveal">
+          <div class="tech-list">
+            <span>Python</span><span>SQL</span><span>GCP</span><span>AI Agent</span>
+            <span>ETL</span><span>Power BI</span><span>Tableau</span><span>QGIS</span>
+            <span>Dashboard</span><span>SQLite</span>
           </div>
         </div>
       </div>
@@ -211,7 +344,7 @@
             </button>
             <div class="timeline-body">
               <ul>
-                <li>以 Python + QGIS 重構住宅統計案，建立一鍵檢核與報告產出機制，年省約 300 萬委外經費，獲內政部記功 2 次。</li>
+                <li>以 Python + QGIS 重構住宅統計案，建立一鍵檢核與報告產出機制，獲內政部記功 2 次。</li>
                 <li>到職 3 個月釐清累積 9 年缺乏交接之報告案，建立知識庫讓非程式同仁可標準化產報。</li>
                 <li>於財政部資訊中心實體隔離機房完成 Python 統計分析，熟稔機敏資料作業規範。</li>
               </ul>
@@ -253,52 +386,6 @@
               </ul>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 專長 -->
-    <section class="section section-alt" id="skills">
-      <div class="container">
-        <header class="section-header reveal">
-          <h2>核心專長</h2>
-        </header>
-        <div class="skills-grid">
-          <article class="skill-card reveal">
-            <h3>資料整合與流程自動化</h3>
-            <p>Python ETL、AI Agent、模組化分析。客製分析交付由 2–3 週縮短至 1 週，並可自動化規格書與報告產出。</p>
-            <div class="skill-tags">
-              <span>Python</span><span>AI Agent</span><span>ETL</span><span>SQLite</span>
-            </div>
-          </article>
-          <article class="skill-card reveal">
-            <h3>決策儀表板與營運優化</h3>
-            <p>整合億級異質數據，交付互動／離線儀表板與 KPI 預警，降低決策延遲、加速跨部門協作。</p>
-            <div class="skill-tags">
-              <span>Tableau</span><span>Power BI</span><span>GCP</span><span>Kepler.gl</span>
-            </div>
-          </article>
-          <article class="skill-card reveal">
-            <h3>GIS 與都市計畫</h3>
-            <p>土地變更、產業政策、法規研析與成本效益評估；結合空間分析與資料科學解析都市議題。</p>
-            <div class="skill-tags">
-              <span>QGIS</span><span>ArcGIS</span><span>GeoJSON</span><span>法規</span>
-            </div>
-          </article>
-          <article class="skill-card reveal">
-            <h3>專案管控與 Root Cause</h3>
-            <p>複雜需求拆解、跨團隊協調、PoC 驗證。曾主導經濟部智慧城鄉科專（總經費 3,311 萬）。</p>
-            <div class="skill-tags">
-              <span>PM</span><span>PoC</span><span>Capex</span><span>Agile</span>
-            </div>
-          </article>
-        </div>
-        <div class="tech-bar reveal">
-          <div class="tech-list">
-            <span>Python</span><span>SQL</span><span>GCP</span><span>AI Agent</span>
-            <span>ETL</span><span>Power BI</span><span>Tableau</span><span>QGIS</span>
-            <span>Dashboard</span><span>SQLite</span>
-          </div>
         </div>
       </div>
     </section>
