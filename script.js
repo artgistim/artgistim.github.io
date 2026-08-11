@@ -338,22 +338,6 @@
       });
     });
 
-    document.querySelectorAll("[data-award-filter]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const filter = btn.getAttribute("data-award-filter") || "all";
-        document.querySelectorAll("[data-award-filter]").forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        awardsList.querySelectorAll(".award-item").forEach((item) => {
-          const year = item.getAttribute("data-year");
-          const featured = item.getAttribute("data-featured") === "1";
-          let show = true;
-          if (filter === "featured") show = featured;
-          else if (filter !== "all") show = year === filter;
-          item.classList.toggle("hidden", !show);
-        });
-      });
-    });
-
     observeReveals(awardsList);
   }
 
