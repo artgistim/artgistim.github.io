@@ -525,6 +525,11 @@ button {
   gap: 0.85rem;
 }
 
+.about-meta-solo {
+  margin-top: 0;
+  max-width: 720px;
+}
+
 .about-meta li {
   padding: 0.9rem 1rem;
   border-radius: var(--radius-sm);
@@ -541,6 +546,20 @@ button {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 0.2rem;
+}
+
+.about-book-link {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-underline-offset: 0.18em;
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+.about-book-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 .about-stats {
