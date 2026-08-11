@@ -73,6 +73,15 @@
   ],
   "portfolio": [
     {
+      "id": "od",
+      "title": "O-D 起訖動向分析",
+      "category": "traffic spatial",
+      "badge": "O-D",
+      "image": "assets/works/od-analysis.jpg",
+      "thumb": "assets/thumbs/od-analysis.jpg",
+      "desc": "以左營高鐵為 Origin，屏東為 Destination 分析旅客動向。"
+    },
+    {
       "id": "spatial-unit",
       "title": "交通流及人流疊合分析",
       "category": "traffic spatial",
@@ -98,15 +107,6 @@
       "image": "assets/works/arc-hop.jpg",
       "thumb": "assets/thumbs/arc-hop.jpg",
       "desc": "數億筆 GPS 以 Geohash 統整時段移動方向，弧形跳躍圖呈現尖峰人流趨勢。"
-    },
-    {
-      "id": "od",
-      "title": "起訖（O-D）分析",
-      "category": "traffic spatial",
-      "badge": "O-D",
-      "image": "assets/works/od-analysis.jpg",
-      "thumb": "assets/thumbs/od-analysis.jpg",
-      "desc": "以左營高鐵為 Origin、屏東為 Destination，解析旅客落點比例。"
     },
     {
       "id": "3d-viz",
