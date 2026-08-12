@@ -521,7 +521,8 @@
                 .join("")}</div>`
             : "";
 
-        const previewLimit = 4;
+        // 全斷點：先顯示精選，其餘「展開更多」
+        const previewLimit = 5;
         const extraClass = idx >= previewLimit ? " award-item-extra" : "";
         return `
 <article class="award-item reveal${extraClass}" data-year="${a.year}" data-featured="${a.featured ? "1" : "0"}">
@@ -567,16 +568,21 @@
     const extraAwards = awardsList.querySelectorAll(".award-item-extra");
     if (awardsExpandBtn && extraAwards.length) {
       awardsExpandBtn.hidden = false;
-      awardsExpandBtn.textContent = `展開全部獎項（+${extraAwards.length}）`;
+      const labelMore = `展開更多獎項（+${extraAwards.length}）`;
+      const labelLess = "收合獎項列表";
+      awardsExpandBtn.textContent = labelMore;
       awardsExpandBtn.setAttribute("aria-expanded", "false");
       awardsList.classList.add("awards-list-collapsed");
+      awardsList.classList.remove("awards-list-expanded");
       awardsExpandBtn.onclick = () => {
         const expanded = awardsList.classList.toggle("awards-list-expanded");
         awardsList.classList.toggle("awards-list-collapsed", !expanded);
         awardsExpandBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
-        awardsExpandBtn.textContent = expanded
-          ? "收合獎項列表"
-          : `展開全部獎項（+${extraAwards.length}）`;
+        awardsExpandBtn.textContent = expanded ? labelLess : labelMore;
+        if (expanded) {
+          // 展開後把焦點移到第一筆隱藏項，方便鍵盤／讀屏
+          extraAwards[0]?.querySelector(".award-header")?.focus({ preventScroll: true });
+        }
       };
     } else if (awardsExpandBtn) {
       awardsExpandBtn.hidden = true;

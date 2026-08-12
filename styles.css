@@ -3556,9 +3556,33 @@ html[data-theme="light"] body.theme-borderless .lecture-year {
   min-height: 0;
 }
 
-/* 獎項：預設只顯示前幾筆（手機） */
+/* 獎項：預設只顯示精選，其餘用「展開更多」（全斷點） */
 .awards-list-collapsed:not(.awards-list-expanded) .award-item-extra {
   display: none;
+}
+
+.awards-expand-hint {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  opacity: 0.9;
+}
+
+.collapse-toggle-wrap {
+  margin-top: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+#awardsExpandBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  padding: 0.55rem 0.35rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
 }
 
 /* —— ≤900px：橫滑作品 + 更緊湊 —— */
@@ -3728,18 +3752,12 @@ html[data-theme="light"] body.theme-borderless .lecture-year {
     display: none !important;
   }
 
-  #awardsExpandBtn {
-    display: none !important;
+  /* 獎項提示在桌機仍顯示（不套用 mobile-hint 隱藏） */
+  .awards-expand-hint {
+    display: block !important;
   }
 
-  .awards-list-collapsed:not(.awards-list-expanded) .award-item-extra {
-    display: block;
-  }
-
-  /* 桌機 STAR 一律可視內容（open class 由 JS 設） */
-  .star-card-body {
-    /* keep grid animation for toggle if user clicks */
-  }
+  /* 獎項「展開更多」桌機同樣啟用，不在此強制顯示全部 */
 }
 
 /* 橫滑軌道：避免過度滾動連鎖（仍允許垂直滑頁） */
