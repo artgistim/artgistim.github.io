@@ -122,8 +122,8 @@
       "title": "3D 社會經濟視覺化",
       "category": "viz spatial",
       "badge": "3D Viz",
-      "image": "assets/works/3d-socioecon.jpg",
-      "thumb": "assets/thumbs/3d-socioecon.jpg",
+      "image": "assets/works/3d-socioecon.jpg?v=20260812fix",
+      "thumb": "assets/thumbs/3d-socioecon.jpg?v=20260812fix",
       "desc": "最小統計區 × 年齡分布，Kepler.gl 呈現高度與色溫多維訊息。"
     },
     {
@@ -140,8 +140,8 @@
       "title": "Grid 網格分析",
       "category": "spatial",
       "badge": "GIS",
-      "image": "assets/works/grid-pm25.jpg",
-      "thumb": "assets/thumbs/grid-pm25.jpg",
+      "image": "assets/works/grid-pm25.jpg?v=20260812fix",
+      "thumb": "assets/thumbs/grid-pm25.jpg?v=20260812fix",
       "desc": "全域網格萃取 PM2.5 等元素，支援選址與正規化比較。"
     },
     {
