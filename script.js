@@ -21,11 +21,14 @@
 
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* Theme — 預設一律暗色；僅手動切換才寫入 localStorage */
+  /* Theme — 初始一律暗色；僅使用者手動切換後才記住 */
   const THEME_KEY = "timcho-theme-v2";
-  // 清掉舊 key（曾依系統淺色被寫成 light 的訪客）
   try {
     localStorage.removeItem("timcho-theme");
+    // 本版重置：避免舊的 light 偏好蓋過暗色初始
+    if (localStorage.getItem(THEME_KEY) === "light") {
+      localStorage.removeItem(THEME_KEY);
+    }
   } catch (_) {
     /* ignore */
   }
