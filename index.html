@@ -12,15 +12,30 @@
   <title>卓易霆 Tim Cho | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260811c" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260812light" />
 </head>
-<body>
+<body class="theme-zen-cyber">
+  <!-- 全站環境層：建築格線 + 禪風材質（裝飾用） -->
+  <div class="site-atmosphere" aria-hidden="true">
+    <div class="site-atmosphere__concrete"></div>
+    <div class="site-atmosphere__grid"></div>
+    <div class="site-atmosphere__glow"></div>
+    <div class="site-atmosphere__vignette"></div>
+  </div>
+  <div class="site-frame" aria-hidden="true">
+    <span class="site-frame__corner site-frame__corner--tl"></span>
+    <span class="site-frame__corner site-frame__corner--tr"></span>
+    <span class="site-frame__corner site-frame__corner--bl"></span>
+    <span class="site-frame__corner site-frame__corner--br"></span>
+    <span class="site-frame__label">SPATIAL · DATA · URBAN</span>
+  </div>
+
   <header class="header" id="header">
     <nav class="nav container">
       <div class="brand">
         <a href="#hero" class="logo">TIM CHO</a>
-        <span class="brand-tagline">AI | DATA ANALYTICS | GIS | URBAN PLANNER</span>
+        <span class="brand-tagline">URBAN PLANNER · GIS · AI DATA</span>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -46,9 +61,18 @@
   <main>
     <!-- Hero -->
     <section class="hero" id="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg__photo"></div>
+        <div class="hero-bg__mesh"></div>
+        <div class="hero-bg__scan"></div>
+      </div>
       <div class="container hero-layout">
         <div class="hero-content">
+          <p class="hero-kicker reveal" aria-hidden="true">
+            <span class="hero-kicker__code">01</span>
+            <span class="hero-kicker__line"></span>
+            <span>空間 × 資料 × 決策</span>
+          </p>
           <div class="hero-identity reveal">
             <img
               class="hero-avatar"
@@ -59,7 +83,7 @@
               loading="eager"
             />
             <div>
-              <p class="hero-eyebrow">AI | DATA ANALYTICS | GIS | URBAN PLANNER</p>
+              <p class="hero-eyebrow">Analyze. Optimize. Strategize.</p>
               <h1 class="hero-title">
                 <span class="name-zh">卓易霆</span>
                 <span class="name-en">Tim Cho</span>
@@ -74,7 +98,7 @@
             <span>50+ 演講及工作坊經驗</span>
           </p>
           <p class="hero-tagline reveal">
-            以數據分析驅動決策（Data Driven）— 專長大數據分析、資料視覺化、地理資訊系統、工作流程自動化
+            把城市裡的移動與經濟活動，收斂成可決策的地圖與儀表板——禪定的空間秩序，賽博的資料脈絡。
           </p>
           <div class="hero-tags reveal">
             <span>AI 數據分析</span>

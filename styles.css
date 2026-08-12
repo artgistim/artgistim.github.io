@@ -1,42 +1,59 @@
 /* ========================================
-   Tim Cho Portfolio — One-page RWD
+   Tim Cho Portfolio — Zen Architecture × Cyber Data
+   日式禪建築大師 × 資料科學賽博龐克
    ======================================== */
 
 :root {
-  --bg: #0b1220;
-  --bg-alt: #111a2e;
-  --surface: #162036;
-  --border: rgba(148, 163, 184, 0.14);
-  --text: #e8eef8;
-  --text-muted: #94a3b8;
-  --accent: #2dd4bf;
-  --accent-2: #38bdf8;
-  --accent-soft: rgba(45, 212, 191, 0.12);
-  --glow: rgba(45, 212, 191, 0.35);
+  /* 安藤忠雄式混凝土夜景：墨、灰、一束光 */
+  --bg: #0a0b0d;
+  --bg-alt: #101215;
+  --surface: #16181d;
+  --surface-2: #1c1f26;
+  --border: rgba(148, 163, 184, 0.12);
+  --border-strong: rgba(94, 234, 212, 0.22);
+  --text: #e8ebe6;
+  --text-muted: #8b939e;
+  /* 賽博：水青（資料）+ 洋紅（節點） */
+  --accent: #5eead4;
+  --accent-2: #22d3ee;
+  --accent-hot: #f472b6;
+  --accent-soft: rgba(94, 234, 212, 0.1);
+  --glow: rgba(94, 234, 212, 0.28);
+  --glow-hot: rgba(244, 114, 182, 0.22);
   --danger: #f87171;
-  --radius: 16px;
-  --radius-sm: 10px;
-  --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  /* 建築感：幾乎直角 */
+  --radius: 2px;
+  --radius-sm: 1px;
+  --radius-media: 2px;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
   --header-h: 68px;
   --font-sans: "Noto Sans TC", system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Noto Sans TC", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "IBM Plex Mono", system-ui, sans-serif;
+  --font-serif: "Noto Serif TC", "Noto Sans TC", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --max-w: 1120px;
-  --transition: 0.25s ease;
+  --transition: 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  --frame-inset: clamp(10px, 1.6vw, 18px);
+  --module: 8px; /* 日式模矩基數 */
 }
 
-/* Light theme */
+/* Light theme — 白砂 / 清水模日景（和室光） */
 [data-theme="light"] {
-  --bg: #f5f7fb;
-  --bg-alt: #eef2f8;
-  --surface: #ffffff;
-  --border: rgba(15, 23, 42, 0.1);
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --accent: #0d9488;
-  --accent-2: #0284c7;
-  --accent-soft: rgba(13, 148, 136, 0.1);
-  --glow: rgba(13, 148, 136, 0.2);
-  --shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --bg: #ebe8e2;
+  --bg-alt: #f4f1eb;
+  --surface: #fbfaf7;
+  --surface-2: #ffffff;
+  --border: rgba(35, 38, 42, 0.11);
+  --border-strong: rgba(15, 118, 110, 0.32);
+  --text: #181a1c;
+  --text-muted: #5a636e;
+  --accent: #0d6b63;
+  --accent-2: #0c6b80;
+  --accent-hot: #a51458;
+  --accent-soft: rgba(13, 107, 99, 0.09);
+  --glow: rgba(13, 107, 99, 0.16);
+  --glow-hot: rgba(165, 20, 88, 0.12);
+  --shadow: 0 14px 36px rgba(40, 36, 30, 0.1);
 }
 
 /* Reset */
@@ -57,10 +74,29 @@ body {
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.75;
   min-height: 100vh;
   overflow-x: hidden;
   transition: background var(--transition), color var(--transition);
+  position: relative;
+}
+
+/* 主內容浮在 atmosphere 之上 */
+body.theme-zen-cyber > .header,
+body.theme-zen-cyber > main,
+body.theme-zen-cyber > .footer,
+body.theme-zen-cyber > .back-top,
+body.theme-zen-cyber > .lightbox {
+  position: relative;
+  z-index: 2;
+}
+
+body.theme-zen-cyber > .header {
+  z-index: 1000;
+}
+
+body.theme-zen-cyber > .lightbox {
+  z-index: 2000;
 }
 
 img {
@@ -130,30 +166,38 @@ button {
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.2em;
   font-size: 1.05rem;
-  color: #ffffff;
+  color: var(--text);
   flex-shrink: 0;
 }
 
 .brand-tagline {
-  font-family: var(--font-display);
-  font-size: 0.62rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: color-mix(in srgb, var(--accent) 75%, var(--text-muted));
   white-space: nowrap;
-  opacity: 0.92;
+  opacity: 0.9;
   line-height: 1.2;
 }
 
 [data-theme="light"] .logo,
 [data-theme="light"] .brand-tagline {
-  color: #ffffff;
-  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.28);
+  color: inherit;
+  text-shadow: none;
+}
+
+[data-theme="light"] .logo {
+  color: var(--text);
+}
+
+[data-theme="light"] .brand-tagline {
+  color: color-mix(in srgb, var(--accent) 80%, var(--text-muted));
 }
 
 .nav-menu {
@@ -252,23 +296,105 @@ button {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 50% 40% at 85% 20%, rgba(45, 212, 191, 0.1), transparent 55%),
-    radial-gradient(ellipse 40% 35% at 10% 80%, rgba(56, 189, 248, 0.08), transparent 50%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
   z-index: 0;
+  overflow: hidden;
 }
 
-.hero-bg::before {
-  content: "";
+.hero-bg__photo {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 75% 65% at 60% 40%, black, transparent);
-  opacity: 0.28;
+  background:
+    linear-gradient(
+      105deg,
+      color-mix(in srgb, var(--bg) 92%, transparent) 0%,
+      color-mix(in srgb, var(--bg) 55%, transparent) 42%,
+      color-mix(in srgb, var(--bg) 35%, transparent) 100%
+    ),
+    url("assets/design/hero-architecture-night.jpg") center / cover no-repeat;
+  filter: saturate(0.85) contrast(1.08);
+  opacity: 0.72;
+}
+
+[data-theme="light"] .hero-bg__photo {
+  opacity: 0.88;
+  filter: saturate(0.72) contrast(1.02) brightness(1.06);
+  background:
+    linear-gradient(
+      105deg,
+      color-mix(in srgb, var(--bg) 94%, #fff) 0%,
+      color-mix(in srgb, var(--bg) 72%, transparent) 38%,
+      color-mix(in srgb, var(--bg) 42%, transparent) 72%,
+      color-mix(in srgb, var(--bg) 55%, transparent) 100%
+    ),
+    url("assets/design/hero-architecture-day.jpg") center / cover no-repeat;
+}
+
+[data-theme="light"] .hero-bg__mesh {
+  background-image: url("assets/design/arch-grid-light.svg");
+  opacity: 0.32;
+  mask-image: linear-gradient(90deg, transparent 0%, black 22%, black 100%);
+}
+
+.hero-bg__mesh {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/design/arch-grid.svg");
+  background-size: 120px 120px;
+  opacity: 0.22;
+  mask-image: linear-gradient(90deg, transparent 0%, black 28%, black 100%);
+  pointer-events: none;
+}
+
+.hero-bg__scan {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(94, 234, 212, 0.03) 48%,
+      transparent 50%,
+      transparent 100%
+    );
+  background-size: 100% 220%;
+  animation: hero-scan 9s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+[data-theme="light"] .hero-bg__scan {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+@keyframes hero-scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero-kicker__code {
+  color: var(--accent-hot);
+  font-weight: 500;
+}
+
+.hero-kicker__line {
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-hot), var(--accent));
+  opacity: 0.85;
 }
 
 .hero-layout {
@@ -295,12 +421,15 @@ button {
 .hero-avatar {
   width: 72px;
   height: 72px;
-  border-radius: 50%;
+  border-radius: var(--radius);
   object-fit: cover;
-  border: 2px solid color-mix(in srgb, var(--accent) 45%, var(--border));
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--bg) 80%, transparent),
+    0 0 0 5px color-mix(in srgb, var(--accent) 35%, transparent);
   flex-shrink: 0;
   background: var(--surface);
+  filter: contrast(1.05) saturate(0.92);
 }
 
 .hero-eyebrow {
@@ -323,24 +452,26 @@ button {
 }
 
 .name-zh {
-  font-size: clamp(1.85rem, 4vw, 2.35rem);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
+  font-family: var(--font-serif);
+  font-size: clamp(1.95rem, 4.2vw, 2.55rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.25;
 }
 
 .name-en {
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
   font-weight: 500;
-  color: #ffffff;
-  letter-spacing: 0.12em;
+  color: color-mix(in srgb, var(--text) 75%, var(--accent));
+  letter-spacing: 0.22em;
   line-height: 1.2;
+  text-transform: uppercase;
 }
 
 [data-theme="light"] .name-en {
-  color: #ffffff;
-  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.35);
+  color: color-mix(in srgb, var(--text) 70%, var(--accent));
+  text-shadow: none;
 }
 
 .hero-highlights {
@@ -349,14 +480,18 @@ button {
   align-items: center;
   gap: 0.35rem 0.5rem;
   margin: 0 0 0.95rem;
-  padding: 0.55rem 0.75rem;
-  border-radius: var(--radius-sm);
-  background: var(--accent-soft);
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  border: 1px solid var(--border-strong);
+  border-left: 2px solid var(--accent);
   color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   line-height: 1.45;
+  backdrop-filter: blur(8px);
 }
 
 .hero-highlights-sep {
@@ -381,20 +516,22 @@ button {
 }
 
 .hero-tags span {
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 0.32rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, #f59e0b 45%, transparent);
-  background: color-mix(in srgb, #f59e0b 14%, transparent);
-  color: #fbbf24;
-  letter-spacing: 0.02em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.32rem 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--accent-hot) 40%, transparent);
+  background: color-mix(in srgb, var(--accent-hot) 8%, transparent);
+  color: color-mix(in srgb, var(--accent-hot) 85%, var(--text));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 [data-theme="light"] .hero-tags span {
-  color: #d97706;
-  border-color: color-mix(in srgb, #d97706 40%, transparent);
-  background: color-mix(in srgb, #f59e0b 12%, transparent);
+  color: var(--accent-hot);
+  border-color: color-mix(in srgb, var(--accent-hot) 35%, transparent);
+  background: color-mix(in srgb, var(--accent-hot) 8%, transparent);
 }
 
 .hero-cta {
@@ -404,39 +541,58 @@ button {
   gap: 0.75rem;
 }
 
-/* 首頁「聯絡方式」：扁、小一點 */
+/* 首頁「聯絡方式」：建築矩形 CTA */
 .hero-cta .btn {
-  padding: 0.42rem 1rem;
-  font-size: 0.82rem;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.78rem;
   font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   line-height: 1.2;
-  border-radius: 999px;
-  box-shadow: 0 3px 10px color-mix(in srgb, var(--glow) 55%, transparent);
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent),
+    0 8px 28px color-mix(in srgb, var(--glow) 45%, transparent);
 }
 
 .hero-cta .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px var(--glow);
+  box-shadow: 0 0 0 1px var(--accent), 0 10px 32px var(--glow);
 }
 
 /* Hero showcase — 作品為主角 */
 .hero-showcase {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
-  gap: 0.65rem;
+  gap: 0.55rem;
   min-height: 340px;
 }
 
 .hero-showcase a {
   margin: 0;
   position: relative;
-  border-radius: 14px;
+  border-radius: var(--radius-media);
   overflow: hidden;
-  border: 1px solid var(--border);
-  background: #050a12;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-strong);
+  background: #050608;
+  box-shadow: var(--shadow);
   display: block;
   color: inherit;
+}
+
+.hero-showcase a::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(94, 234, 212, 0.18);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.hero-showcase a:hover::before {
+  opacity: 1;
 }
 
 .hero-showcase img {
@@ -487,7 +643,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 0.85rem 1.6rem;
-  border-radius: 999px;
+  border-radius: var(--radius);
   font-weight: 500;
   font-size: 0.95rem;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
@@ -499,7 +655,7 @@ button {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #042f2e;
+  color: #041312;
   box-shadow: 0 8px 24px var(--glow);
 }
 
@@ -521,31 +677,53 @@ button {
 /* ========== Sections ========== */
 .section {
   padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+  position: relative;
 }
 
 .section-alt {
-  background: var(--bg-alt);
+  background: color-mix(in srgb, var(--bg-alt) 88%, transparent);
+  border-block: 1px solid var(--border);
 }
 
 .section-header {
   margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+  position: relative;
+  padding-left: 0.15rem;
 }
 
 .section-header h2 {
-  font-size: clamp(1.55rem, 3.2vw, 2rem);
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
   margin-bottom: 0;
+}
+
+.section-header h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.65rem;
+  vertical-align: 0.15em;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+  background: color-mix(in srgb, var(--accent-hot) 55%, transparent);
 }
 
 .section-header h2::after {
   content: "";
   display: block;
-  width: 36px;
-  height: 2px;
-  margin-top: 0.65rem;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  border-radius: 2px;
+  width: min(100%, 12rem);
+  height: 1px;
+  margin-top: 0.85rem;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--accent-hot) 28%,
+    transparent 100%
+  );
+  border-radius: 0;
 }
 
 .section-sub {
@@ -1953,4 +2131,577 @@ button {
     transition: none;
   }
 
+  .hero-bg__scan {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   Zen × Cyber atmosphere layers & architectural chrome
+   ========================================================= */
+
+.site-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.site-atmosphere__concrete {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 0%, rgba(94, 234, 212, 0.06), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 90% 85%, rgba(244, 114, 182, 0.05), transparent 50%),
+    linear-gradient(180deg, #0a0b0d 0%, #0e1014 50%, #0a0b0d 100%);
+  opacity: 1;
+}
+
+[data-theme="light"] .site-atmosphere__concrete {
+  background:
+    radial-gradient(ellipse 70% 40% at 10% 0%, rgba(15, 118, 110, 0.08), transparent 50%),
+    linear-gradient(180deg, #e8e6e1 0%, #f3f1ec 100%);
+}
+
+/* AI 材質 + 向量格線疊加 */
+.site-atmosphere__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("assets/design/arch-grid.svg"),
+    url("assets/design/pattern-zen-cyber-tile.jpg");
+  background-size: 120px 120px, 520px 520px;
+  background-repeat: repeat, repeat;
+  opacity: 0.14;
+  mix-blend-mode: screen;
+}
+
+[data-theme="light"] .site-atmosphere__grid {
+  opacity: 0.09;
+  mix-blend-mode: multiply;
+  filter: grayscale(0.3) contrast(1.1);
+}
+
+.site-atmosphere__glow {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(94, 234, 212, 0.09), transparent 28%),
+    radial-gradient(circle at 20% 70%, rgba(244, 114, 182, 0.06), transparent 32%);
+  animation: ambient-drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes ambient-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-2%, 1.5%, 0); }
+}
+
+.site-atmosphere__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 65% at 50% 40%, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+  opacity: 0.75;
+}
+
+[data-theme="light"] .site-atmosphere__vignette {
+  background: radial-gradient(ellipse 75% 70% at 50% 35%, transparent 45%, rgba(40, 35, 30, 0.12) 100%);
+  opacity: 1;
+}
+
+/* 視窗外框：製圖角標 */
+.site-frame {
+  position: fixed;
+  inset: var(--frame-inset);
+  z-index: 1;
+  pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.site-frame__corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.75;
+}
+
+.site-frame__corner--tl {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+  box-shadow: -1px -1px 0 0 var(--accent-hot);
+}
+
+.site-frame__corner--tr {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.site-frame__corner--bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.site-frame__corner--br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+  box-shadow: 1px 1px 0 0 var(--accent-hot);
+}
+
+.site-frame__label {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: color-mix(in srgb, var(--accent) 70%, var(--text-muted));
+  opacity: 0.55;
+}
+
+@media (max-width: 720px) {
+  .site-frame {
+    inset: 6px;
+  }
+
+  .site-frame__label {
+    display: none;
+  }
+}
+
+/* 卡片改建築感 */
+.skill-card,
+.star-card,
+.about-meta li,
+.contact-card,
+.timeline-item,
+.award-item,
+.lecture-card,
+.port-card,
+.port-card-visual {
+  border-radius: var(--radius) !important;
+  background: color-mix(in srgb, var(--surface) 88%, transparent) !important;
+  border-color: var(--border) !important;
+  backdrop-filter: blur(6px);
+}
+
+.skill-card,
+.star-card,
+.contact-card {
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--accent) 8%, transparent),
+    0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.skill-card:hover,
+.star-card:hover {
+  border-color: var(--border-strong) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent),
+    0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* 標題與數據字體 */
+.skill-card h3,
+.star-card h3,
+.timeline-meta h3,
+.award-info h3 {
+  font-family: var(--font-serif);
+  letter-spacing: 0.08em;
+}
+
+.star-org,
+.award-year,
+.timeline-meta time,
+.tech-list span,
+.skill-tags span {
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.04em;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  letter-spacing: 0.2em;
+  font-weight: 500;
+}
+
+.brand-tagline {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  opacity: 0.75;
+}
+
+.header {
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  border-bottom-color: transparent;
+}
+
+.header.scrolled {
+  border-bottom-color: color-mix(in srgb, var(--accent) 14%, var(--border));
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+}
+
+/* 作品圖：內嵌製圖框感 */
+.port-card-visual,
+.port-media {
+  border-radius: var(--radius-media) !important;
+}
+
+.port-card-visual {
+  position: relative;
+}
+
+.port-card-visual::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  opacity: 0.55;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.back-top {
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  border-color: var(--border-strong);
+}
+
+/* 聯絡區：水泥牆切面 */
+.section-contact {
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in srgb, var(--accent) 4%, transparent) 100%
+    );
+}
+
+.contact-card {
+  border: 1px solid var(--border-strong) !important;
+  position: relative;
+}
+
+.contact-card::before {
+  content: "CONTACT_NODE";
+  position: absolute;
+  top: 0.65rem;
+  right: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--accent-hot);
+  opacity: 0.55;
+}
+
+/* Hero tagline 更禪 */
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--text) 82%, var(--text-muted));
+  max-width: 28rem;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+}
+
+/* 選單下劃線改建築細線 */
+.nav-link::after {
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hot));
+}
+
+/* theme toggle 方形 */
+.theme-toggle {
+  border-radius: var(--radius);
+}
+
+/* 手機隱藏沉重裝飾可選：格線仍保留但更淡 */
+@media (max-width: 720px) {
+  .site-atmosphere__grid {
+    opacity: 0.08;
+  }
+
+  .hero-bg__mesh {
+    opacity: 0.12;
+  }
+}
+
+/* =========================================================
+   Light mode polish — 白砂清水模日景 × 克制賽博
+   ========================================================= */
+
+[data-theme="light"] .site-atmosphere__concrete {
+  background:
+    radial-gradient(ellipse 75% 45% at 12% 0%, rgba(13, 107, 99, 0.07), transparent 52%),
+    radial-gradient(ellipse 55% 40% at 92% 88%, rgba(165, 20, 88, 0.04), transparent 48%),
+    linear-gradient(180deg, #ebe8e2 0%, #f4f1eb 48%, #ebe8e2 100%);
+}
+
+[data-theme="light"] .site-atmosphere__grid {
+  background-image:
+    url("assets/design/arch-grid-light.svg"),
+    url("assets/design/pattern-zen-day-tile.jpg");
+  background-size: 120px 120px, 480px 480px;
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+  filter: contrast(1.05) saturate(0.85);
+}
+
+[data-theme="light"] .site-atmosphere__glow {
+  background:
+    radial-gradient(circle at 72% 18%, rgba(13, 107, 99, 0.1), transparent 30%),
+    radial-gradient(circle at 18% 72%, rgba(165, 20, 88, 0.05), transparent 34%);
+}
+
+[data-theme="light"] .site-atmosphere__vignette {
+  background: radial-gradient(
+    ellipse 78% 72% at 50% 36%,
+    transparent 42%,
+    rgba(55, 48, 40, 0.1) 100%
+  );
+  opacity: 1;
+}
+
+[data-theme="light"] .site-frame {
+  border-color: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+[data-theme="light"] .site-frame__corner {
+  opacity: 0.85;
+}
+
+[data-theme="light"] .site-frame__label {
+  color: color-mix(in srgb, var(--accent) 65%, var(--text-muted));
+  opacity: 0.7;
+}
+
+[data-theme="light"] .header {
+  background: color-mix(in srgb, var(--bg) 78%, #fff);
+  backdrop-filter: blur(16px) saturate(1.05);
+}
+
+[data-theme="light"] .header.scrolled {
+  border-bottom-color: color-mix(in srgb, var(--accent) 16%, var(--border));
+  box-shadow: 0 6px 24px rgba(40, 36, 30, 0.06);
+}
+
+[data-theme="light"] .nav-link {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .nav-link.active {
+  color: var(--text);
+}
+
+/* Hero 日景文字可讀性 */
+[data-theme="light"] .hero-kicker {
+  color: var(--accent);
+}
+
+[data-theme="light"] .hero-kicker__code {
+  color: var(--accent-hot);
+}
+
+[data-theme="light"] .name-zh {
+  color: var(--text);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="light"] .name-en {
+  color: color-mix(in srgb, var(--accent) 55%, var(--text));
+}
+
+[data-theme="light"] .hero-tagline {
+  color: color-mix(in srgb, var(--text) 78%, var(--text-muted));
+}
+
+[data-theme="light"] .hero-highlights {
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  border-color: var(--border-strong);
+  color: var(--accent);
+  box-shadow: 0 8px 24px rgba(40, 36, 30, 0.05);
+}
+
+[data-theme="light"] .hero-showcase a {
+  background: #e4e0d8;
+  border-color: color-mix(in srgb, var(--accent) 22%, var(--border));
+  box-shadow: 0 14px 36px rgba(40, 36, 30, 0.12);
+}
+
+[data-theme="light"] .hero-showcase a::before {
+  border-color: rgba(13, 107, 99, 0.28);
+}
+
+[data-theme="light"] .hero-showcase a > span {
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(transparent, rgba(20, 24, 28, 0.72));
+}
+
+[data-theme="light"] .hero-avatar {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--surface) 90%, transparent),
+    0 0 0 5px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+[data-theme="light"] .hero-cta .btn {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 6px 18px color-mix(in srgb, var(--glow) 50%, transparent);
+}
+
+[data-theme="light"] .btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #f7fffe;
+  box-shadow: 0 8px 22px var(--glow);
+}
+
+/* 區塊與卡片 */
+[data-theme="light"] .section-alt {
+  background: color-mix(in srgb, var(--bg-alt) 92%, #fff);
+  border-block-color: color-mix(in srgb, var(--accent) 10%, var(--border));
+}
+
+[data-theme="light"] .section-header h2::before {
+  background: color-mix(in srgb, var(--accent-hot) 45%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+[data-theme="light"] .skill-card,
+[data-theme="light"] .star-card,
+[data-theme="light"] .about-meta li,
+[data-theme="light"] .contact-card,
+[data-theme="light"] .timeline-item,
+[data-theme="light"] .award-item,
+[data-theme="light"] .lecture-card,
+[data-theme="light"] .port-card,
+[data-theme="light"] .port-card-visual {
+  background: color-mix(in srgb, var(--surface) 94%, #fff) !important;
+  border-color: color-mix(in srgb, var(--border) 90%, var(--accent)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 10px 28px rgba(40, 36, 30, 0.06) !important;
+  backdrop-filter: blur(4px);
+}
+
+[data-theme="light"] .skill-card:hover,
+[data-theme="light"] .star-card:hover {
+  border-color: var(--border-strong) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent),
+    0 14px 36px rgba(40, 36, 30, 0.1) !important;
+}
+
+[data-theme="light"] .timeline::before {
+  background: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+[data-theme="light"] .timeline-dot {
+  background: var(--surface);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+[data-theme="light"] .port-card-visual::after {
+  border-color: var(--accent);
+  opacity: 0.65;
+}
+
+[data-theme="light"] .contact-card {
+  border-color: var(--border-strong) !important;
+  background:
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--surface) 96%, #fff) 0%,
+      color-mix(in srgb, var(--accent-soft) 40%, var(--surface)) 100%
+    ) !important;
+}
+
+[data-theme="light"] .contact-card::before {
+  color: var(--accent-hot);
+  opacity: 0.5;
+}
+
+[data-theme="light"] .section-contact {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent) 5%, transparent) 100%
+  );
+}
+
+[data-theme="light"] .footer {
+  border-top-color: color-mix(in srgb, var(--accent) 12%, var(--border));
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .back-top {
+  background: color-mix(in srgb, var(--surface) 95%, #fff);
+  border-color: var(--border-strong);
+  color: var(--accent);
+  box-shadow: 0 8px 20px rgba(40, 36, 30, 0.1);
+}
+
+[data-theme="light"] .theme-toggle {
+  border-color: var(--border-strong);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  background: var(--accent-soft);
+}
+
+/* 日景掃描線改柔和 */
+[data-theme="light"] .hero-bg__scan {
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(13, 107, 99, 0.04) 48%,
+    transparent 52%,
+    transparent 100%
+  );
+  background-size: 100% 220%;
+}
+
+/* lightbox 在淺色下不刺眼 */
+[data-theme="light"] .lightbox {
+  background: rgba(30, 28, 26, 0.72);
+}
+
+/* 作品圖在淺色下略降飽和，貼近紙本展場 */
+[data-theme="light"] .hero-showcase img,
+[data-theme="light"] .port-media img,
+[data-theme="light"] .port-card-visual img {
+  filter: saturate(0.92) contrast(1.02);
+}
+
+@media (max-width: 720px) {
+  [data-theme="light"] .site-atmosphere__grid {
+    opacity: 0.12;
+  }
+
+  [data-theme="light"] .hero-bg__mesh {
+    opacity: 0.2;
+  }
 }

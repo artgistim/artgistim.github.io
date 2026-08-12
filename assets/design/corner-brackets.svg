@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <!-- 建築製圖角標：透明底，單色可由 CSS mask 上色 -->
+  <path d="M2 18 V2 H18" stroke="#5eead4" stroke-width="1.2"/>
+  <path d="M46 2 H62 V18" stroke="#5eead4" stroke-width="1.2"/>
+  <path d="M62 46 V62 H46" stroke="#5eead4" stroke-width="1.2"/>
+  <path d="M18 62 H2 V46" stroke="#5eead4" stroke-width="1.2"/>
+  <circle cx="2" cy="2" r="1.2" fill="#f472b6"/>
+  <circle cx="62" cy="62" r="1.2" fill="#f472b6"/>
+</svg>
