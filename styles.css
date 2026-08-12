@@ -81,18 +81,21 @@ body {
   position: relative;
 }
 
-/* 主內容浮在 atmosphere 之上 */
-body.theme-zen-cyber > .header,
+/* 主內容浮在 atmosphere 之上（header 必須保持 fixed 導覽） */
 body.theme-zen-cyber > main,
-body.theme-zen-cyber > .footer,
-body.theme-zen-cyber > .back-top,
-body.theme-zen-cyber > .lightbox {
+body.theme-zen-cyber > .footer {
   position: relative;
   z-index: 2;
 }
 
 body.theme-zen-cyber > .header {
+  position: fixed;
+  inset: 0 0 auto 0;
   z-index: 1000;
+}
+
+body.theme-zen-cyber > .back-top {
+  z-index: 1100;
 }
 
 body.theme-zen-cyber > .lightbox {
@@ -2703,5 +2706,1299 @@ button {
 
   [data-theme="light"] .hero-bg__mesh {
     opacity: 0.2;
+  }
+}
+
+/* =========================================================
+   Borderless artistic mode — 無卡片、無邊框、仍有層次
+   body.theme-borderless
+   ========================================================= */
+
+body.theme-borderless {
+  --border: transparent;
+  --border-strong: transparent;
+  --shadow: none;
+  --radius: 0;
+  --radius-sm: 0;
+  --radius-media: 0;
+}
+
+/* 外框只留四角，不要完整邊框 */
+body.theme-borderless .site-frame {
+  border: none;
+}
+
+/* 區段：用留白與極淡漸層呼吸，不用邊線 */
+body.theme-borderless .section-alt {
+  background: transparent;
+  border-block: none;
+}
+
+body.theme-borderless .section {
+  padding: clamp(3.25rem, 7.5vw, 5.75rem) 0;
+}
+
+body.theme-borderless .section + .section {
+  position: relative;
+}
+
+body.theme-borderless .section + .section::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(42%, 280px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 35%, transparent),
+    color-mix(in srgb, var(--accent-hot) 25%, transparent),
+    transparent
+  );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Header：無底線，僅霧面 */
+body.theme-borderless .header {
+  position: fixed !important;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+}
+
+body.theme-borderless .header.scrolled {
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(18px) saturate(1.1);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22) !important;
+}
+
+html[data-theme="light"] body.theme-borderless .header.scrolled {
+  box-shadow: 0 6px 20px rgba(40, 36, 30, 0.08) !important;
+}
+
+/* 區塊標題：改為字重與長漸層，方塊標記改細短豎線 */
+body.theme-borderless .section-header h2::before {
+  width: 2px;
+  height: 0.95em;
+  margin-right: 0.75rem;
+  border: none;
+  box-shadow: none;
+  vertical-align: -0.12em;
+  background: linear-gradient(180deg, var(--accent), var(--accent-hot));
+}
+
+body.theme-borderless .section-header h2::after {
+  width: min(100%, 18rem);
+  height: 1px;
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+/* —— 全面拆除卡片外殼（核心專長 skill-card 除外，見下方） —— */
+body.theme-borderless .star-card,
+body.theme-borderless .about-meta li,
+body.theme-borderless .contact-card,
+body.theme-borderless .timeline-item,
+body.theme-borderless .award-item,
+body.theme-borderless .lecture-card,
+body.theme-borderless .port-card,
+body.theme-borderless .port-card-visual,
+body.theme-borderless .stat-card,
+body.theme-borderless .hero-highlights,
+body.theme-borderless .hero-showcase a,
+body.theme-borderless .theme-toggle,
+body.theme-borderless .back-top,
+body.theme-borderless .filter-btn,
+body.theme-borderless .btn,
+body.theme-borderless .contact-link,
+body.theme-borderless .contact-icon,
+body.theme-borderless .award-rank,
+body.theme-borderless .lecture-year,
+body.theme-borderless .lecture-pages,
+body.theme-borderless .port-badge,
+body.theme-borderless .hero-tags span {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none;
+}
+
+body.theme-borderless .star-card,
+body.theme-borderless .about-meta li,
+body.theme-borderless .contact-card,
+body.theme-borderless .timeline-item,
+body.theme-borderless .award-item,
+body.theme-borderless .lecture-card,
+body.theme-borderless .port-card,
+body.theme-borderless .stat-card {
+  background: transparent !important;
+}
+
+/* About：改為編輯排版，左細豎 accent */
+body.theme-borderless .about-meta {
+  gap: 1.75rem;
+}
+
+body.theme-borderless .about-meta li {
+  padding: 0 0 0 1rem;
+  position: relative;
+}
+
+body.theme-borderless .about-meta li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  bottom: 0.2rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  opacity: 0.7;
+}
+
+/* Skills：維持原本矩形框線卡片（此區不走無邊框） */
+body.theme-borderless .skills-grid {
+  gap: 0.65rem;
+}
+
+body.theme-borderless .skill-card {
+  padding: 0.85rem 0.95rem !important;
+  background: color-mix(in srgb, var(--surface) 88%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, rgba(148, 163, 184, 0.16)) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+body.theme-borderless .skill-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18) !important;
+}
+
+body.theme-borderless .skill-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+body.theme-borderless .skill-tags span,
+body.theme-borderless .tech-list span {
+  background: var(--accent-soft) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent) !important;
+  border-radius: 2px !important;
+  padding: 0.18rem 0.5rem !important;
+  color: var(--accent) !important;
+  opacity: 1;
+}
+
+body.theme-borderless .skill-tags span::before,
+body.theme-borderless .tech-list span::before {
+  content: none !important;
+  margin: 0;
+}
+
+body.theme-borderless .tech-bar {
+  border-top: 1px solid color-mix(in srgb, var(--accent) 14%, rgba(148, 163, 184, 0.14));
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  opacity: 1;
+}
+
+html[data-theme="light"] body.theme-borderless .skill-card {
+  background: color-mix(in srgb, var(--surface) 96%, #fff) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, rgba(40, 40, 40, 0.12)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+}
+
+html[data-theme="light"] body.theme-borderless .skill-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent) !important;
+  box-shadow: 0 10px 24px rgba(40, 36, 30, 0.08) !important;
+}
+
+/* STAR：編輯欄，左漸層指示 */
+body.theme-borderless .star-grid {
+  gap: 2.25rem 3rem;
+}
+
+body.theme-borderless .star-card {
+  padding: 0;
+  gap: 0.85rem;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+body.theme-borderless .star-card:hover {
+  transform: translateY(-2px);
+}
+
+body.theme-borderless .star-org {
+  letter-spacing: 0.14em;
+}
+
+body.theme-borderless .star-steps > div {
+  grid-template-columns: 2.2rem 1fr;
+  padding: 0.15rem 0;
+}
+
+body.theme-borderless .star-steps dt {
+  font-family: var(--font-mono);
+  opacity: 0.85;
+}
+
+/* Timeline：純時間軸，無盒 */
+body.theme-borderless .timeline {
+  gap: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+body.theme-borderless .timeline::before {
+  width: 1px;
+  opacity: 0.45;
+  left: 11px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    color-mix(in srgb, var(--accent-hot) 40%, transparent),
+    transparent
+  );
+}
+
+body.theme-borderless .timeline-item {
+  overflow: visible;
+  background: transparent !important;
+}
+
+body.theme-borderless .timeline-item:hover,
+body.theme-borderless .timeline-item.open {
+  border-color: transparent !important;
+}
+
+body.theme-borderless .timeline-header {
+  padding: 1rem 0.5rem 1rem 0.25rem;
+  border-radius: 0;
+  transition: background var(--transition);
+}
+
+body.theme-borderless .timeline-header:hover {
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
+}
+
+body.theme-borderless .timeline-item.open .timeline-header {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+body.theme-borderless .timeline-dot {
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--bg) 90%, transparent);
+}
+
+body.theme-borderless .timeline-body {
+  padding-left: calc(24px + 1rem + 0.5rem);
+  padding-right: 0.5rem;
+}
+
+/* Portfolio：畫廊感，圖面主導 */
+body.theme-borderless .portfolio-grid,
+body.theme-borderless .portfolio-grid-visual {
+  gap: 1.75rem 1.25rem;
+}
+
+body.theme-borderless .port-card,
+body.theme-borderless .port-card-visual {
+  background: transparent !important;
+  overflow: visible;
+}
+
+body.theme-borderless .port-card:hover,
+body.theme-borderless .port-card-visual:hover {
+  transform: none;
+}
+
+body.theme-borderless .port-media {
+  background: transparent;
+  overflow: hidden;
+}
+
+body.theme-borderless .port-media img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease, opacity 0.35s ease;
+}
+
+body.theme-borderless .port-card-visual:hover .port-media img {
+  transform: scale(1.04);
+  filter: brightness(1.08) saturate(1.08) contrast(1.03);
+}
+
+body.theme-borderless .port-media-overlay {
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    color-mix(in srgb, var(--bg) 75%, transparent) 100%
+  );
+}
+
+body.theme-borderless .port-body {
+  padding: 0.85rem 0.1rem 0.25rem;
+}
+
+body.theme-borderless .port-badge {
+  background: color-mix(in srgb, var(--bg) 55%, transparent) !important;
+  color: var(--accent);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.1em;
+}
+
+body.theme-borderless .port-card h3 {
+  font-family: var(--font-serif);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+body.theme-borderless .port-card-target {
+  border: none !important;
+  box-shadow: none !important;
+  transform: none;
+  animation: none;
+}
+
+body.theme-borderless .port-card-target .port-media {
+  outline: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  outline-offset: 4px;
+}
+
+body.theme-borderless .port-card-visual::after {
+  display: none;
+}
+
+/* Awards / lectures：列表詩意排版 */
+body.theme-borderless .lectures-grid {
+  gap: 2rem 2.5rem;
+}
+
+body.theme-borderless .lecture-card {
+  padding: 0;
+  gap: 0.55rem;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+body.theme-borderless .lecture-card:hover {
+  transform: translateX(3px);
+}
+
+body.theme-borderless .lecture-year {
+  background: transparent !important;
+  color: var(--accent) !important;
+  padding: 0;
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+}
+
+body.theme-borderless .lecture-pages {
+  border: none !important;
+  padding: 0;
+  opacity: 0.7;
+}
+
+body.theme-borderless .award-item {
+  padding: 0.85rem 0;
+  background: transparent !important;
+  transition: background var(--transition);
+}
+
+body.theme-borderless .award-item:hover,
+body.theme-borderless .award-item.open {
+  background: color-mix(in srgb, var(--accent) 4%, transparent) !important;
+}
+
+body.theme-borderless .award-rank {
+  background: transparent !important;
+  color: var(--accent-hot);
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+body.theme-borderless .award-photos-rail {
+  gap: 0.85rem;
+  mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+}
+
+body.theme-borderless .award-photo-card {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  opacity: 0.92;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+body.theme-borderless .award-photo-card:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+/* Contact：開闊、可點區域清楚 */
+body.theme-borderless .contact-card {
+  padding: 0.5rem 0 0;
+  position: relative;
+}
+
+body.theme-borderless .contact-card::before {
+  content: "CONTACT";
+  top: -0.25rem;
+  right: 0;
+  letter-spacing: 0.28em;
+  opacity: 0.4;
+}
+
+body.theme-borderless .contact-links {
+  gap: 0.35rem;
+}
+
+body.theme-borderless .contact-link {
+  background: transparent !important;
+  padding: 1rem 0.25rem;
+  border-radius: 0 !important;
+  transition: transform var(--transition), color var(--transition), background var(--transition);
+}
+
+body.theme-borderless .contact-link:hover {
+  transform: translateX(6px);
+  background: color-mix(in srgb, var(--accent) 5%, transparent) !important;
+  color: var(--accent);
+}
+
+body.theme-borderless .contact-icon {
+  background: transparent !important;
+  color: var(--accent);
+  border: none !important;
+  font-family: var(--font-mono);
+  width: auto;
+  min-width: 1.75rem;
+}
+
+body.theme-borderless .section-contact {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent) 5%, transparent) 55%,
+    color-mix(in srgb, var(--accent-hot) 3%, transparent) 100%
+  );
+}
+
+/* Hero：無框拼貼 */
+body.theme-borderless .hero-highlights {
+  background: transparent !important;
+  padding: 0.35rem 0;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 70%, transparent) !important;
+  padding-left: 0.85rem;
+  backdrop-filter: none;
+}
+
+body.theme-borderless .hero-tags span {
+  background: transparent !important;
+  padding: 0.2rem 0.65rem 0.2rem 0;
+  letter-spacing: 0.1em;
+  position: relative;
+}
+
+body.theme-borderless .hero-tags span + span::before {
+  content: "/";
+  margin-right: 0.65rem;
+  color: color-mix(in srgb, var(--accent-hot) 70%, var(--text-muted));
+  opacity: 0.55;
+}
+
+body.theme-borderless .hero-showcase {
+  gap: 0.85rem;
+}
+
+body.theme-borderless .hero-showcase a {
+  background: transparent !important;
+  overflow: hidden;
+}
+
+body.theme-borderless .hero-showcase a::before {
+  display: none;
+}
+
+body.theme-borderless .hero-showcase img {
+  filter: saturate(1.04) contrast(1.05);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
+}
+
+body.theme-borderless .hero-showcase a:hover img {
+  transform: scale(1.035);
+  filter: brightness(1.06) saturate(1.1);
+}
+
+body.theme-borderless .hero-showcase a > span {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+  background: linear-gradient(
+    transparent,
+    color-mix(in srgb, var(--bg) 88%, transparent)
+  );
+}
+
+body.theme-borderless .hero-avatar {
+  border: none !important;
+  box-shadow: none !important;
+  outline: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  outline-offset: 3px;
+}
+
+body.theme-borderless .hero-cta .btn,
+body.theme-borderless .btn-primary {
+  background: transparent !important;
+  color: var(--accent) !important;
+  padding: 0.55rem 0 !important;
+  box-shadow: none !important;
+  position: relative;
+  letter-spacing: 0.16em;
+}
+
+body.theme-borderless .hero-cta .btn::after,
+body.theme-borderless .btn-primary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hot), transparent);
+  transform: scaleX(0.35);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.theme-borderless .hero-cta .btn:hover::after,
+body.theme-borderless .btn-primary:hover::after {
+  transform: scaleX(1);
+}
+
+body.theme-borderless .btn-outline {
+  background: transparent !important;
+  color: var(--text-muted);
+}
+
+body.theme-borderless .btn-outline:hover {
+  color: var(--accent);
+}
+
+/* Theme toggle / back-top：極簡但仍可點 */
+body.theme-borderless .theme-toggle {
+  background: transparent !important;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+body.theme-borderless .theme-toggle:hover {
+  opacity: 1;
+  background: color-mix(in srgb, var(--accent) 8%, transparent) !important;
+  transform: none;
+}
+
+body.theme-borderless .back-top {
+  background: color-mix(in srgb, var(--bg) 70%, transparent) !important;
+  color: var(--accent);
+  backdrop-filter: blur(10px);
+  opacity: 0.9;
+}
+
+body.theme-borderless .back-top:hover {
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg)) !important;
+}
+
+body.theme-borderless .filter-btn {
+  background: transparent !important;
+  padding: 0.35rem 0.75rem 0.35rem 0;
+}
+
+body.theme-borderless .filter-btn.active {
+  background: transparent !important;
+  color: var(--accent);
+  box-shadow: none;
+}
+
+body.theme-borderless .footer {
+  border-top: none;
+  background: transparent;
+  opacity: 0.8;
+}
+
+/* 藝術化：標題略鬆、作品區更沉 */
+body.theme-borderless .section-header h2 {
+  letter-spacing: 0.22em;
+  font-weight: 500;
+}
+
+body.theme-borderless .name-zh {
+  letter-spacing: 0.28em;
+  font-weight: 500;
+}
+
+body.theme-borderless .hero-tagline {
+  font-weight: 400;
+  line-height: 1.85;
+  opacity: 0.92;
+}
+
+/* 鍵盤可及性：無邊框站仍要有 focus 環 */
+body.theme-borderless a:focus-visible,
+body.theme-borderless button:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* 淺色模式：同樣無卡，靠留白與字色（data-theme 在 html） */
+html[data-theme="light"] body.theme-borderless .header {
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+}
+
+html[data-theme="light"] body.theme-borderless .header.scrolled {
+  background: color-mix(in srgb, var(--bg) 88%, #fff);
+}
+
+html[data-theme="light"] body.theme-borderless .star-card,
+html[data-theme="light"] body.theme-borderless .about-meta li,
+html[data-theme="light"] body.theme-borderless .contact-card,
+html[data-theme="light"] body.theme-borderless .timeline-item,
+html[data-theme="light"] body.theme-borderless .award-item,
+html[data-theme="light"] body.theme-borderless .lecture-card,
+html[data-theme="light"] body.theme-borderless .port-card,
+html[data-theme="light"] body.theme-borderless .port-card-visual {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+html[data-theme="light"] body.theme-borderless .port-media-overlay {
+  background: linear-gradient(
+    180deg,
+    transparent 35%,
+    color-mix(in srgb, var(--bg) 70%, #1a1814) 100%
+  );
+}
+
+html[data-theme="light"] body.theme-borderless .hero-cta .btn,
+html[data-theme="light"] body.theme-borderless .btn-primary {
+  color: var(--accent) !important;
+}
+
+html[data-theme="light"] body.theme-borderless .lecture-year {
+  color: var(--accent) !important;
+}
+
+/* 手機：加大點擊區、減少位移 */
+@media (max-width: 720px) {
+  body.theme-borderless .skill-card:hover,
+  body.theme-borderless .lecture-card:hover,
+  body.theme-borderless .contact-link:hover {
+    transform: none;
+  }
+
+  body.theme-borderless .contact-link {
+    padding: 1.1rem 0.15rem;
+  }
+
+  body.theme-borderless .timeline-header {
+    padding: 1.1rem 0.15rem;
+  }
+}
+
+/* =========================================================
+   Mobile RWD: 作品橫滑 + 區塊摺疊（縮短垂直長度）
+   ========================================================= */
+
+.section-sub-mobile-hint {
+  display: none;
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.collapse-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.collapse-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.65rem 0.25rem;
+  border: none;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.collapse-toggle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.35rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hot), transparent);
+}
+
+.collapse-toggle:hover {
+  color: color-mix(in srgb, var(--accent) 80%, var(--text));
+}
+
+/* STAR 摺疊結構 */
+.star-card-top {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "org chev"
+    "title chev";
+  gap: 0.2rem 0.75rem;
+  align-items: center;
+  text-align: left;
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.star-card-top .star-org {
+  grid-area: org;
+}
+
+.star-card-top h3 {
+  grid-area: title;
+  margin: 0;
+}
+
+.star-chevron,
+.lecture-chevron {
+  grid-area: chev;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: transform var(--transition);
+  justify-self: end;
+}
+
+.star-card.open .star-chevron,
+.lecture-card.open .lecture-chevron {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.star-card-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.star-card.open .star-card-body {
+  grid-template-rows: 1fr;
+}
+
+.star-card-body > .star-steps {
+  overflow: hidden;
+  min-height: 0;
+  margin-top: 0;
+}
+
+.star-card.open .star-card-body > .star-steps {
+  margin-top: 0.85rem;
+}
+
+/* Lecture 摺疊 */
+.lecture-card-top {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.lecture-card-top h3 {
+  margin: 0.35rem 0 0.25rem;
+}
+
+.lecture-chevron {
+  position: absolute;
+  right: 0;
+  top: 0.15rem;
+}
+
+.lecture-card-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.lecture-card.open .lecture-card-body {
+  grid-template-rows: 1fr;
+  margin-top: 0.65rem;
+}
+
+.lecture-card-body-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* 獎項：預設只顯示前幾筆（手機） */
+.awards-list-collapsed:not(.awards-list-expanded) .award-item-extra {
+  display: none;
+}
+
+/* —— ≤900px：橫滑作品 + 更緊湊 —— */
+@media (max-width: 900px) {
+  .section-sub-mobile-hint {
+    display: block;
+  }
+
+  .section {
+    padding: clamp(2.25rem, 6vw, 3.25rem) 0;
+  }
+
+  #skills.section {
+    padding-top: clamp(1.5rem, 4vw, 2.25rem);
+    padding-bottom: clamp(1.5rem, 4vw, 2.25rem);
+  }
+
+  /* 作品橫滑軌道 */
+  #portfolio .container {
+    width: 100%;
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  #portfolio .section-header {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+    margin-bottom: 0.85rem;
+  }
+
+  .portfolio-rail {
+    overflow: hidden;
+  }
+
+  .portfolio-grid,
+  .portfolio-grid-visual {
+    display: flex !important;
+    flex-wrap: nowrap;
+    gap: 0.85rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.25rem 1rem 1rem;
+    grid-template-columns: none !important;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--accent) 45%, transparent) transparent;
+  }
+
+  .portfolio-grid::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .portfolio-grid::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
+  .portfolio-grid-visual .port-card-visual,
+  .portfolio-grid-visual .port-card-wide,
+  .portfolio-grid-visual #work-nasa-art {
+    flex: 0 0 min(78vw, 300px);
+    width: min(78vw, 300px);
+    max-width: min(78vw, 300px);
+    grid-column: auto !important;
+    scroll-snap-align: start;
+  }
+
+  .portfolio-grid-visual .port-card-visual .port-media,
+  .portfolio-grid-visual .port-card-wide .port-media,
+  .portfolio-grid-visual #work-nasa-art .port-media {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .portfolio-grid-visual .port-body {
+    padding: 0.65rem 0.1rem 0.15rem;
+  }
+
+  .portfolio-grid-visual .port-card h3 {
+    font-size: 0.92rem;
+  }
+
+  .portfolio-grid-visual .port-card p {
+    font-size: 0.78rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Hero 作品拼貼也改橫滑，減少首屏高度 */
+  .hero-showcase {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.65rem;
+    min-height: 0;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-showcase .showcase-main,
+  .hero-showcase .showcase-side {
+    display: contents;
+  }
+
+  .hero-showcase a {
+    flex: 0 0 min(72vw, 280px);
+    width: min(72vw, 280px);
+    min-height: 200px;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: start;
+  }
+
+  .showcase-main {
+    min-height: 200px;
+  }
+
+  /* STAR 更緊湊 */
+  .star-grid {
+    gap: 0.35rem;
+  }
+
+  .star-card {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+
+  body.theme-borderless .star-card {
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+
+  /* 講堂直排、摺疊後短 */
+  .lectures-grid {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .lecture-card {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+
+  /* 獎項合照 rail 略矮 */
+  .award-photos-rail {
+    margin-bottom: 0.75rem;
+  }
+
+  .award-photo-card {
+    width: 140px;
+    flex: 0 0 140px;
+  }
+
+  /* 桌機展開鈕在寬螢幕隱藏由下方 media 處理 */
+}
+
+@media (min-width: 901px) {
+  /* 桌機：STAR / 講義保持展開閱讀；橫滑關閉 */
+  .star-chevron,
+  .lecture-chevron {
+    display: none;
+  }
+
+  .section-sub-mobile-hint {
+    display: none !important;
+  }
+
+  #awardsExpandBtn {
+    display: none !important;
+  }
+
+  .awards-list-collapsed:not(.awards-list-expanded) .award-item-extra {
+    display: block;
+  }
+
+  /* 桌機 STAR 一律可視內容（open class 由 JS 設） */
+  .star-card-body {
+    /* keep grid animation for toggle if user clicks */
+  }
+}
+
+/* 橫滑軌道：避免過度滾動連鎖（仍允許垂直滑頁） */
+@media (max-width: 900px) {
+  .portfolio-grid,
+  .hero-showcase,
+  .award-photos-rail {
+    overscroll-behavior-x: contain;
+  }
+}
+
+/* =========================================================
+   Portfolio album — 書本／相冊翻頁（≤900px）
+   ========================================================= */
+
+.portfolio-album {
+  width: min(100% - 2rem, 420px);
+  margin: 0 auto;
+  perspective: 1600px;
+}
+
+.portfolio-album[hidden] {
+  display: none !important;
+}
+
+.album-viewport {
+  position: relative;
+  padding: 0.35rem 0.5rem 0.75rem;
+}
+
+.album-book {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: min(62vh, 480px);
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface) 70%, #1a1c20), color-mix(in srgb, var(--bg) 90%, #0a0b0d));
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+html[data-theme="light"] .album-book {
+  background: linear-gradient(145deg, #fbfaf7, #ebe6de);
+  box-shadow:
+    0 16px 40px rgba(40, 36, 30, 0.14),
+    0 0 0 1px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.album-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 22%, transparent),
+    transparent 70%
+  );
+  box-shadow: inset 3px 0 8px rgba(0, 0, 0, 0.25);
+}
+
+.album-leaf {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.album-leaf--under {
+  z-index: 1;
+}
+
+.album-leaf--over {
+  z-index: 2;
+  transform-origin: left center;
+  transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.2, 1),
+    box-shadow 0.6s ease,
+    opacity 0.6s ease;
+  background: color-mix(in srgb, var(--bg) 40%, #0e1014);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+html[data-theme="light"] .album-leaf--over {
+  background: #f7f4ee;
+}
+
+.album-book.is-turning-next .album-leaf--over {
+  transform: rotateY(-148deg);
+  box-shadow: -12px 8px 28px rgba(0, 0, 0, 0.35);
+  opacity: 0.92;
+}
+
+.album-book.is-turning-prev .album-leaf--over {
+  transform-origin: right center;
+  transform: rotateY(148deg);
+  box-shadow: 12px 8px 28px rgba(0, 0, 0, 0.35);
+  opacity: 0.92;
+}
+
+.album-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.album-page-media {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: #050608;
+}
+
+.album-page-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.album-page-media .port-badge {
+  position: absolute;
+  left: 0.65rem;
+  bottom: 0.65rem;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  color: var(--accent);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 0;
+}
+
+.album-page-body {
+  flex: 0 0 auto;
+  padding: 0.75rem 0.9rem 0.9rem;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+}
+
+html[data-theme="light"] .album-page-body {
+  background: color-mix(in srgb, var(--surface) 94%, #fff);
+}
+
+.album-page-body h3 {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+  line-height: 1.35;
+}
+
+.album-page-body p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.album-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.85rem;
+}
+
+.album-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 1.55rem;
+  line-height: 1;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), opacity var(--transition);
+}
+
+.album-btn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.album-btn:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+.album-page-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  min-width: 5.5rem;
+  text-align: center;
+}
+
+.album-book.album-flash {
+  animation: album-flash 1s ease;
+}
+
+@keyframes album-flash {
+  0%,
+  100% {
+    box-shadow:
+      0 18px 50px rgba(0, 0, 0, 0.4),
+      0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+  40% {
+    box-shadow:
+      0 18px 50px rgba(0, 0, 0, 0.4),
+      0 0 0 1px var(--accent),
+      0 0 24px color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+}
+
+@media (max-width: 900px) {
+  /* 相冊模式：隱藏橫滑網格 */
+  #portfolioGrid.portfolio-grid-visual {
+    display: none !important;
+  }
+
+  .portfolio-album {
+    display: block;
+  }
+
+  /* 覆蓋先前橫滑 hero 可保留；作品改相冊 */
+  #portfolio .container {
+    width: min(100% - 2rem, 1200px);
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 901px) {
+  .portfolio-album {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .album-leaf--over {
+    transition-duration: 0.01ms !important;
   }
 }

@@ -89,17 +89,21 @@
   onScroll();
   backTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-  /* Timeline */
+  const mqCompact = window.matchMedia("(max-width: 900px)");
+
+  /* Timeline — 手機預設全收合；桌機展開第一筆 */
   const timelineItems = document.querySelectorAll(".timeline-item");
-  timelineItems.forEach((item, i) => {
+  function setTimelineDefaultOpen() {
+    const openFirst = !mqCompact.matches;
+    timelineItems.forEach((item, i) => {
+      const headerBtn = item.querySelector(".timeline-header");
+      const shouldOpen = openFirst && i === 0;
+      item.classList.toggle("open", shouldOpen);
+      headerBtn?.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+    });
+  }
+  timelineItems.forEach((item) => {
     const headerBtn = item.querySelector(".timeline-header");
-    if (i === 0) {
-      item.classList.add("open");
-      headerBtn?.setAttribute("aria-expanded", "true");
-    } else {
-      item.classList.remove("open");
-      headerBtn?.setAttribute("aria-expanded", "false");
-    }
     headerBtn?.addEventListener("click", () => {
       const isOpen = item.classList.contains("open");
       timelineItems.forEach((other) => {
@@ -112,6 +116,41 @@
       }
     });
   });
+  setTimelineDefaultOpen();
+  mqCompact.addEventListener?.("change", setTimelineDefaultOpen);
+
+  /* STAR 實績 — 摺疊（手機預設收；桌機預設展開） */
+  const starCards = document.querySelectorAll(".star-card");
+  function setStarDefaultOpen() {
+    const openAll = !mqCompact.matches;
+    starCards.forEach((card) => {
+      const btn = card.querySelector(".star-card-top");
+      card.classList.toggle("open", openAll);
+      btn?.setAttribute("aria-expanded", openAll ? "true" : "false");
+    });
+  }
+  starCards.forEach((card) => {
+    const btn = card.querySelector(".star-card-top");
+    btn?.addEventListener("click", () => {
+      const isOpen = card.classList.contains("open");
+      if (mqCompact.matches) {
+        // 手機：手風琴，一次只開一張
+        starCards.forEach((other) => {
+          other.classList.remove("open");
+          other.querySelector(".star-card-top")?.setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) {
+          card.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      } else {
+        card.classList.toggle("open", !isOpen);
+        btn.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+      }
+    });
+  });
+  setStarDefaultOpen();
+  mqCompact.addEventListener?.("change", setStarDefaultOpen);
 
   /* Lightbox */
   const lightbox = document.getElementById("lightbox");
@@ -197,8 +236,176 @@
   let portfolioLightboxItems = [];
   let awardLightboxItems = [];
 
+  const portfolioAlbum = document.getElementById("portfolioAlbum");
+  const albumBook = document.getElementById("albumBook");
+  const albumOver = document.getElementById("albumOver");
+  const albumUnder = document.getElementById("albumUnder");
+  const albumPrev = document.getElementById("albumPrev");
+  const albumNext = document.getElementById("albumNext");
+  const albumPageLabel = document.getElementById("albumPageLabel");
+  let portfolioItemsCache = [];
+  let albumIndex = 0;
+  let albumBusy = false;
+
+  function portImgSrc(p, idx) {
+    const isWide = p.id === "nasa-art";
+    return isWide || idx < 6 ? p.image || p.thumb : p.thumb || p.image;
+  }
+
+  function albumLeafHtml(p, idx) {
+    if (!p) return "";
+    const workId = escapeHtml(p.id || `work-${idx}`);
+    return `
+<article class="album-page" data-idx="${idx}" id="work-${workId}" data-work-id="${workId}">
+  <div class="album-page-media">
+    <img src="${escapeHtml(portImgSrc(p, idx))}" alt="${escapeHtml(p.title)}" draggable="false" />
+    <span class="port-badge">${escapeHtml(p.badge || "")}</span>
+  </div>
+  <div class="album-page-body">
+    <h3>${escapeHtml(p.title)}</h3>
+    <p>${escapeHtml(p.desc)}</p>
+  </div>
+</article>`;
+  }
+
+  function updateAlbumChrome() {
+    const n = portfolioItemsCache.length;
+    if (albumPageLabel) albumPageLabel.textContent = n ? `${albumIndex + 1} / ${n}` : "0 / 0";
+    if (albumPrev) albumPrev.disabled = albumIndex <= 0 || albumBusy;
+    if (albumNext) albumNext.disabled = albumIndex >= n - 1 || albumBusy;
+  }
+
+  function paintAlbumLeaves(overIdx, underIdx) {
+    if (albumOver) {
+      albumOver.innerHTML = albumLeafHtml(portfolioItemsCache[overIdx], overIdx);
+      albumOver.querySelector(".album-page")?.addEventListener("click", () => {
+        openLightbox(portfolioLightboxItems, overIdx);
+      });
+    }
+    if (albumUnder) {
+      if (underIdx != null && portfolioItemsCache[underIdx]) {
+        albumUnder.innerHTML = albumLeafHtml(portfolioItemsCache[underIdx], underIdx);
+        albumUnder.hidden = false;
+      } else {
+        albumUnder.innerHTML = "";
+        albumUnder.hidden = true;
+      }
+    }
+  }
+
+  function showAlbumPage(idx, { animate = false, dir = "next" } = {}) {
+    const n = portfolioItemsCache.length;
+    if (!n || !albumOver) return;
+    const nextIdx = Math.max(0, Math.min(n - 1, idx));
+
+    if (!animate || nextIdx === albumIndex) {
+      albumIndex = nextIdx;
+      paintAlbumLeaves(albumIndex, null);
+      albumBook?.classList.remove("is-turning-next", "is-turning-prev", "is-animating");
+      albumBusy = false;
+      updateAlbumChrome();
+      return;
+    }
+
+    if (albumBusy) return;
+    albumBusy = true;
+    updateAlbumChrome();
+
+    const from = albumIndex;
+    const turningNext = dir === "next";
+    // under 先放目標頁，over 翻開露出 underneath
+    paintAlbumLeaves(from, nextIdx);
+    albumBook?.classList.remove("is-turning-next", "is-turning-prev");
+    // force reflow
+    void albumBook?.offsetWidth;
+    albumBook?.classList.add("is-animating", turningNext ? "is-turning-next" : "is-turning-prev");
+
+    const done = () => {
+      albumIndex = nextIdx;
+      paintAlbumLeaves(albumIndex, null);
+      albumBook?.classList.remove("is-turning-next", "is-turning-prev", "is-animating");
+      albumBusy = false;
+      updateAlbumChrome();
+    };
+
+    window.setTimeout(done, 620);
+  }
+
+  let albumInited = false;
+
+  function initPortfolioAlbum() {
+    if (!portfolioAlbum || !portfolioItemsCache.length) return;
+
+    const syncMode = () => {
+      const compact = mqCompact.matches;
+      portfolioAlbum.hidden = !compact;
+      if (compact) {
+        showAlbumPage(albumIndex, { animate: false });
+      }
+    };
+
+    if (!albumInited) {
+      albumInited = true;
+      albumPrev?.addEventListener("click", () => {
+        if (albumIndex > 0) showAlbumPage(albumIndex - 1, { animate: true, dir: "prev" });
+      });
+      albumNext?.addEventListener("click", () => {
+        if (albumIndex < portfolioItemsCache.length - 1) {
+          showAlbumPage(albumIndex + 1, { animate: true, dir: "next" });
+        }
+      });
+
+      let touchX = 0;
+      let touchY = 0;
+      albumBook?.addEventListener(
+        "touchstart",
+        (e) => {
+          const t = e.changedTouches[0];
+          touchX = t.clientX;
+          touchY = t.clientY;
+        },
+        { passive: true }
+      );
+      albumBook?.addEventListener(
+        "touchend",
+        (e) => {
+          const t = e.changedTouches[0];
+          const dx = t.clientX - touchX;
+          const dy = t.clientY - touchY;
+          if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
+          if (dx < 0 && albumIndex < portfolioItemsCache.length - 1) {
+            showAlbumPage(albumIndex + 1, { animate: true, dir: "next" });
+          } else if (dx > 0 && albumIndex > 0) {
+            showAlbumPage(albumIndex - 1, { animate: true, dir: "prev" });
+          }
+        },
+        { passive: true }
+      );
+
+      document.addEventListener("keydown", (e) => {
+        if (!mqCompact.matches || portfolioAlbum?.hidden) return;
+        const section = document.getElementById("portfolio");
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        if (rect.bottom < 80 || rect.top > window.innerHeight) return;
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          albumNext?.click();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          albumPrev?.click();
+        }
+      });
+
+      mqCompact.addEventListener?.("change", syncMode);
+    }
+
+    syncMode();
+  }
+
   function renderPortfolio(items) {
     if (!portfolioGrid) return;
+    portfolioItemsCache = items;
     portfolioLightboxItems = items.map((p) => ({
       src: p.image,
       caption: p.title || "",
@@ -207,12 +414,11 @@
     portfolioGrid.innerHTML = items
       .map((p, idx) => {
         const isWide = p.id === "nasa-art";
-        // 寬版卡片與前幾張一律用原圖，避免 thumb 太小看不出放大
-        const imgSrc = isWide || idx < 6 ? p.image || p.thumb : p.thumb || p.image;
+        const imgSrc = portImgSrc(p, idx);
         const workId = escapeHtml(p.id || `work-${idx}`);
         const wideClass = isWide ? " port-card-wide" : "";
         return `
-<article class="port-card port-card-visual reveal${wideClass}" id="work-${workId}" data-work-id="${workId}" data-idx="${idx}">
+<article class="port-card port-card-visual reveal${wideClass}" id="work-grid-${workId}" data-work-id="${workId}" data-idx="${idx}">
   <div class="port-media">
     <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" loading="${idx < 4 || isWide ? "eager" : "lazy"}" />
     <div class="port-media-overlay">
@@ -231,14 +437,28 @@
       card.addEventListener("click", () => openLightbox(portfolioLightboxItems, Number(card.dataset.idx) || 0));
     });
     observeReveals(portfolioGrid);
-    // 若從首頁 showcase 錨點進入，高亮對應作品卡
+    initPortfolioAlbum();
     highlightWorkFromHash();
   }
 
   function highlightWorkFromHash() {
     const hash = window.location.hash || "";
     if (!hash.startsWith("#work-")) return;
-    const card = document.querySelector(hash);
+    const workKey = hash.slice(1); // work-xxx
+    const id = workKey.replace(/^work-/, "");
+    const idx = portfolioItemsCache.findIndex((p) => (p.id || "") === id);
+
+    if (mqCompact.matches && idx >= 0) {
+      showAlbumPage(idx, { animate: false });
+      document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      albumBook?.classList.add("album-flash");
+      window.setTimeout(() => albumBook?.classList.remove("album-flash"), 1200);
+      return;
+    }
+
+    const card =
+      document.getElementById(`work-grid-${id}`) ||
+      document.querySelector(`[data-work-id="${CSS.escape(id)}"]`);
     if (!card) return;
     card.classList.add("port-card-target");
     requestAnimationFrame(() => {
@@ -301,9 +521,11 @@
                 .join("")}</div>`
             : "";
 
+        const previewLimit = 4;
+        const extraClass = idx >= previewLimit ? " award-item-extra" : "";
         return `
-<article class="award-item reveal${idx === 0 ? " open" : ""}" data-year="${a.year}" data-featured="${a.featured ? "1" : "0"}">
-  <button type="button" class="award-header" aria-expanded="${idx === 0 ? "true" : "false"}">
+<article class="award-item reveal${extraClass}" data-year="${a.year}" data-featured="${a.featured ? "1" : "0"}">
+  <button type="button" class="award-header" aria-expanded="false">
     <span class="award-year">${a.year}</span>
     <div class="award-info">
       <span class="award-rank">${escapeHtml(a.rank || "")}</span>
@@ -341,6 +563,25 @@
       });
     });
 
+    const awardsExpandBtn = document.getElementById("awardsExpandBtn");
+    const extraAwards = awardsList.querySelectorAll(".award-item-extra");
+    if (awardsExpandBtn && extraAwards.length) {
+      awardsExpandBtn.hidden = false;
+      awardsExpandBtn.textContent = `展開全部獎項（+${extraAwards.length}）`;
+      awardsExpandBtn.setAttribute("aria-expanded", "false");
+      awardsList.classList.add("awards-list-collapsed");
+      awardsExpandBtn.onclick = () => {
+        const expanded = awardsList.classList.toggle("awards-list-expanded");
+        awardsList.classList.toggle("awards-list-collapsed", !expanded);
+        awardsExpandBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
+        awardsExpandBtn.textContent = expanded
+          ? "收合獎項列表"
+          : `展開全部獎項（+${extraAwards.length}）`;
+      };
+    } else if (awardsExpandBtn) {
+      awardsExpandBtn.hidden = true;
+    }
+
     observeReveals(awardsList);
   }
 
@@ -370,30 +611,61 @@
         const ym = formatLectureYearMonth(lec.date, lec.year);
         return `
 <article class="lecture-card reveal">
-  <div class="lecture-top">
-    <span class="lecture-year">${escapeHtml(String(lec.year || ""))}</span>
-  </div>
-  <h3>${escapeHtml(lec.title)}</h3>
-  ${lec.title_en ? `<p class="lecture-sub">${escapeHtml(lec.title_en)}</p>` : ""}
-  <p class="lecture-meta">${escapeHtml(ym)}</p>
-  <p class="lecture-summary">${escapeHtml(lec.summary || "")}</p>
-  ${
-    outline.length
-      ? `<ul class="lecture-outline">${outline.map((o) => `<li>${escapeHtml(o)}</li>`).join("")}</ul>`
-      : ""
-  }
-  ${
-    topics.length
-      ? `<div class="lecture-tags">${topics.map((t) => `<span>${escapeHtml(t)}</span>`).join("")}</div>`
-      : ""
-  }
-  <div class="lecture-actions">
-    <a class="btn-open" href="${file}" target="_blank" rel="noopener noreferrer">開啟 PDF</a>
-    <a class="btn-dl" href="${file}" download>下載</a>
+  <button type="button" class="lecture-card-top" aria-expanded="false">
+    <div class="lecture-top">
+      <span class="lecture-year">${escapeHtml(String(lec.year || ""))}</span>
+    </div>
+    <h3>${escapeHtml(lec.title)}</h3>
+    ${lec.title_en ? `<p class="lecture-sub">${escapeHtml(lec.title_en)}</p>` : ""}
+    <p class="lecture-meta">${escapeHtml(ym)}</p>
+    <span class="lecture-chevron" aria-hidden="true">▾</span>
+  </button>
+  <div class="lecture-card-body">
+    <div class="lecture-card-body-inner">
+      <p class="lecture-summary">${escapeHtml(lec.summary || "")}</p>
+      ${
+        outline.length
+          ? `<ul class="lecture-outline">${outline.map((o) => `<li>${escapeHtml(o)}</li>`).join("")}</ul>`
+          : ""
+      }
+      ${
+        topics.length
+          ? `<div class="lecture-tags">${topics.map((t) => `<span>${escapeHtml(t)}</span>`).join("")}</div>`
+          : ""
+      }
+      <div class="lecture-actions">
+        <a class="btn-open" href="${file}" target="_blank" rel="noopener noreferrer">開啟 PDF</a>
+        <a class="btn-dl" href="${file}" download>下載</a>
+      </div>
+    </div>
   </div>
 </article>`;
       })
       .join("");
+
+    lecturesGrid.querySelectorAll(".lecture-card").forEach((card) => {
+      const btn = card.querySelector(".lecture-card-top");
+      // 桌機預設展開；手機收合
+      const openDesktop = !mqCompact.matches;
+      card.classList.toggle("open", openDesktop);
+      btn?.setAttribute("aria-expanded", openDesktop ? "true" : "false");
+      btn?.addEventListener("click", () => {
+        const isOpen = card.classList.contains("open");
+        if (mqCompact.matches) {
+          lecturesGrid.querySelectorAll(".lecture-card").forEach((other) => {
+            other.classList.remove("open");
+            other.querySelector(".lecture-card-top")?.setAttribute("aria-expanded", "false");
+          });
+          if (!isOpen) {
+            card.classList.add("open");
+            btn.setAttribute("aria-expanded", "true");
+          }
+        } else {
+          card.classList.toggle("open", !isOpen);
+          btn.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+        }
+      });
+    });
 
     observeReveals(lecturesGrid);
   }
