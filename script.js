@@ -21,25 +21,41 @@
 
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* Theme */
-  const THEME_KEY = "timcho-theme";
+  /* Theme — 預設一律暗色；僅手動切換才寫入 localStorage */
+  const THEME_KEY = "timcho-theme-v2";
+  // 清掉舊 key（曾依系統淺色被寫成 light 的訪客）
+  try {
+    localStorage.removeItem("timcho-theme");
+  } catch (_) {
+    /* ignore */
+  }
 
   function getPreferredTheme() {
-    const saved = localStorage.getItem(THEME_KEY);
-    if (saved === "light" || saved === "dark") return saved;
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    try {
+      const saved = localStorage.getItem(THEME_KEY);
+      if (saved === "light" || saved === "dark") return saved;
+    } catch (_) {
+      /* ignore */
+    }
+    return "dark";
   }
 
-  function applyTheme(theme) {
+  function applyTheme(theme, { persist = false } = {}) {
     if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
     else document.documentElement.removeAttribute("data-theme");
-    localStorage.setItem(THEME_KEY, theme);
+    if (persist) {
+      try {
+        localStorage.setItem(THEME_KEY, theme);
+      } catch (_) {
+        /* ignore */
+      }
+    }
   }
 
-  applyTheme(getPreferredTheme());
+  applyTheme(getPreferredTheme(), { persist: false });
   themeToggle?.addEventListener("click", () => {
     const isLight = document.documentElement.getAttribute("data-theme") === "light";
-    applyTheme(isLight ? "dark" : "light");
+    applyTheme(isLight ? "dark" : "light", { persist: true });
   });
 
   /* Mobile nav */

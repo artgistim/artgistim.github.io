@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0a0b0d" />
   <meta name="description" content="卓易霆 Tim Cho — 都市計畫技師｜AI 數據分析｜資料視覺化｜專案管理" />
   <meta name="author" content="卓易霆 Tim Cho" />
   <meta property="og:title" content="卓易霆 Tim Cho | Portfolio" />
@@ -16,13 +18,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260812awards" />
+  <link rel="stylesheet" href="styles.css?v=20260812arch2" />
 </head>
 <body class="theme-zen-cyber theme-borderless">
   <!-- 全站環境層：建築格線 + 禪風材質（裝飾用） -->
   <div class="site-atmosphere" aria-hidden="true">
     <div class="site-atmosphere__concrete"></div>
     <div class="site-atmosphere__grid"></div>
+    <div class="site-atmosphere__space">
+      <span class="space-mass space-mass--l"></span>
+      <span class="space-mass space-mass--r"></span>
+      <span class="space-floor"></span>
+      <span class="space-module"></span>
+      <span class="space-axis space-axis--l"></span>
+      <span class="space-axis space-axis--r"></span>
+      <span class="space-frame-box"></span>
+      <span class="space-node space-node--1"></span>
+      <span class="space-node space-node--2"></span>
+      <span class="space-node space-node--3"></span>
+      <span class="space-bracket space-bracket--bl"></span>
+      <span class="space-bracket space-bracket--br"></span>
+    </div>
     <div class="site-atmosphere__glow"></div>
     <div class="site-atmosphere__vignette"></div>
   </div>
@@ -322,7 +338,21 @@
     </section>
 
     <!-- 經歷 -->
-    <section class="section section-alt" id="experience">
+    <section class="section section-alt section-has-arch" id="experience">
+      <!-- 區段背景：仿 Hero 建築實景＋光影／格線（裁切與右側光不同） -->
+      <div class="section-arch section-arch--experience" aria-hidden="true">
+        <span class="arch-photo"></span>
+        <span class="arch-mesh"></span>
+        <span class="arch-light"></span>
+        <span class="arch-scan"></span>
+        <span class="arch-veil"></span>
+        <span class="arch-col arch-col--a"></span>
+        <span class="arch-col arch-col--c"></span>
+        <span class="arch-level arch-level--2"></span>
+        <span class="arch-level arch-level--4"></span>
+        <span class="arch-node arch-node--a"></span>
+        <span class="arch-label">ELEVATION · TIME</span>
+      </div>
       <div class="container">
         <header class="section-header reveal">
           <h2>工作經歷</h2>
@@ -464,7 +494,24 @@
     </section>
 
     <!-- 聯絡 -->
-    <section class="section section-contact" id="contact">
+    <section class="section section-contact section-has-arch" id="contact">
+      <!-- 區段背景：同套建築實景語彙，裁切偏下＋中庭光（與經歷區不同） -->
+      <div class="section-arch section-arch--contact" aria-hidden="true">
+        <span class="arch-photo"></span>
+        <span class="arch-mesh"></span>
+        <span class="arch-light"></span>
+        <span class="arch-scan"></span>
+        <span class="arch-veil"></span>
+        <span class="arch-void"></span>
+        <span class="arch-void arch-void--inner"></span>
+        <span class="arch-horizon arch-horizon--1"></span>
+        <span class="arch-horizon arch-horizon--2"></span>
+        <span class="arch-ray arch-ray--l"></span>
+        <span class="arch-ray arch-ray--r"></span>
+        <span class="arch-court"></span>
+        <span class="arch-node arch-node--c"></span>
+        <span class="arch-label arch-label--contact">MA · CONTACT</span>
+      </div>
       <div class="container">
         <header class="section-header reveal">
           <h2>聯絡方式</h2>
@@ -513,6 +560,6 @@
     </figure>
   </div>
 
-  <script src="script.js?v=20260812awards"></script>
+  <script src="script.js?v=20260812darkdef"></script>
 </body>
 </html>

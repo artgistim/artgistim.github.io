@@ -14,7 +14,7 @@
       "pages": 36,
       "role": "City Research Scientist · Tim Cho",
       "context": "公開授課／演講講義",
-      "summary": "從城市開放資料與「流」的數位足跡出發，說明如何組合地理數據描繪都市現象，並銜接 Vpon × Wee 之人流與觀光數據應用案例。",
+      "summary": "從城市開放資料與「流」的數位足跡出發，說明如何組合地理數據描繪都市現象，並銜接 Vpon 數據產品及跨國觀光數據應用案例。",
       "summary_detail": "前半釐清公開資料與開放資料差異、城市數據疊圖（如低活力／低可達性／負面因子）、行為與社經人口描繪；後半介紹裝置數位足跡如何生成，以及日本觀光行銷、地方創生與台北人行道流量等實務分析。",
       "outline": [
         "01 城市數據與開放資料",
@@ -33,7 +33,7 @@
       "pages": 58,
       "role": "City Research Scientist · Tim Cho",
       "context": "授課講義（含課程規劃與期末專題）",
-      "summary": "以聯合國 SDGs 為題，教導如何用開放資料、探勘與地理視覺化「說一個完整的資料故事」：駕馭資料、打造敘事、識讀真偽。",
+      "summary": "以聯合國 SDGs 為題，教學如何用開放資料、探勘分析與地理視覺化進行「資料敘事」。",
       "summary_detail": "課程含上午講授、下午操作與分組期末報告；大綱分三部——Harnessing Data、Crafting Data（敘事藝術）、Decoding Data（拆解真相與謊言）。內容涵蓋開放資料、儀表板、視覺化敘事，以及无家可归者等案例示範如何把指標、限制與洞察講清楚。",
       "outline": [
         "01 Harnessing Data: Unleashing Possibilities",
@@ -53,7 +53,7 @@
       "pages": 41,
       "role": "Sr. Data Scientist · 卓易霆",
       "context": "產業論壇／公開簡報（Vpon）",
-      "summary": "介紹 Vpon AI 大數據與人流（Foot Traffic）資料如何驅動移動服務，並以觀光跨境、交通運輸、零售消費三大產業解方說明數據落地。",
+      "summary": "介紹 Vpon AI 與移動裝置大數據服務，並以觀光跨境、交通運輸、零售消費三大產業解方說明數據落地案例。",
       "summary_detail": "涵蓋 Vpon 集團與 Wee 數據平台、人流資料維度與 OMO 整合；產業案例包含觀光活動成效與產值、機場—市區旅運、事故風險熱區、高鐵 O-D 輔助，以及新創採購之人流／觀光產值分析平台。",
       "outline": [
         "About Vpon Big Data Group",
