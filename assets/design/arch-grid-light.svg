@@ -1,18 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-  <!-- 日景版模矩格線：深 teal + 玫瑰節點 -->
+  <!-- 日景純模矩格線：無節點、無斜線 -->
   <defs>
     <style>
-      .g { stroke: #0f766e; stroke-width: 0.45; fill: none; opacity: 0.28; }
-      .m { stroke: #be185d; stroke-width: 0.35; opacity: 0.14; }
-      .d { fill: #0f766e; opacity: 0.4; }
-      .h { fill: #be185d; opacity: 0.45; }
+      .g { stroke: #0f766e; stroke-width: 0.4; fill: none; opacity: 0.22; }
+      .f { stroke: #0f766e; stroke-width: 0.3; fill: none; opacity: 0.12; }
     </style>
   </defs>
   <path class="g" d="M0 40 H120 M0 80 H120 M40 0 V120 M80 0 V120"/>
-  <path class="g" d="M0 20 H120 M0 60 H120 M0 100 H120 M20 0 V120 M60 0 V120 M100 0 V120" opacity="0.5"/>
-  <path class="m" d="M0 120 L120 0"/>
-  <circle class="d" cx="40" cy="40" r="1.15"/>
-  <circle class="d" cx="80" cy="80" r="1.15"/>
-  <circle class="h" cx="80" cy="40" r="0.75"/>
-  <circle class="h" cx="40" cy="80" r="0.75"/>
+  <path class="f" d="M0 20 H120 M0 60 H120 M0 100 H120 M20 0 V120 M60 0 V120 M100 0 V120"/>
 </svg>

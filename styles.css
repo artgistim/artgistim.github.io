@@ -1671,7 +1671,7 @@ button {
 
 .awards-list {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.12rem;
 }
 
 .awards-loading,
@@ -1707,36 +1707,36 @@ button {
 .award-header {
   width: 100%;
   display: grid;
-  grid-template-columns: 64px 1fr auto;
-  gap: 0.55rem 0.75rem;
+  grid-template-columns: 52px 1fr auto;
+  gap: 0.25rem 0.55rem;
   align-items: start;
   text-align: left;
-  padding: 0.7rem 0.95rem;
+  padding: 0.4rem 0.35rem;
 }
 
 .award-year {
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--accent);
-  font-size: 1.05rem;
-  padding-top: 0.15rem;
+  font-size: 0.95rem;
+  padding-top: 0.08rem;
 }
 
 .award-info h3 {
-  font-size: 1.02rem;
-  margin-bottom: 0.25rem;
-  line-height: 1.35;
+  font-size: 0.95rem;
+  margin-bottom: 0.1rem;
+  line-height: 1.3;
 }
 
 .award-rank {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: #042f2e;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  padding: 0.15rem 0.55rem;
+  padding: 0.1rem 0.4rem;
   border-radius: 999px;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.15rem;
 }
 
 [data-theme="light"] .award-rank {
@@ -1744,9 +1744,9 @@ button {
 }
 
 .award-meta {
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.35;
 }
 
 .award-meta strong {
@@ -1856,22 +1856,23 @@ button {
 
 .contact-lead {
   color: var(--text-muted);
-  margin-bottom: 1.75rem;
-  font-size: 1.05rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.98rem;
+  line-height: 1.45;
 }
 
 .contact-links {
   display: grid;
-  gap: 0.75rem;
-  margin-bottom: 1.75rem;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
 }
 
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.65rem;
   text-align: left;
-  padding: 0.95rem 1.1rem;
+  padding: 0.5rem 0.35rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   transition: border-color var(--transition), background var(--transition), transform var(--transition);
@@ -2182,8 +2183,7 @@ button {
   background:
     radial-gradient(ellipse 80% 50% at 15% 0%, rgba(94, 234, 212, 0.06), transparent 55%),
     radial-gradient(ellipse 60% 45% at 90% 85%, rgba(244, 114, 182, 0.05), transparent 50%),
-    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(94, 234, 212, 0.04), transparent 55%),
-    linear-gradient(180deg, #0a0b0d 0%, #0e1014 48%, #0c0e12 72%, #0a0b0d 100%);
+    linear-gradient(180deg, #0a0b0d 0%, #0e1014 50%, #0a0b0d 100%);
   opacity: 1;
 }
 
@@ -2193,45 +2193,94 @@ button {
     linear-gradient(180deg, #e8e6e1 0%, #f3f1ec 100%);
 }
 
-/* AI 材質 + 向量格線疊加（下半部略重，上半部更淡） */
-.site-atmosphere__grid {
-  position: absolute;
+/* 全站幾何紙感：低對比線條與折形陰影 */
+.site-atmosphere__geometry {
+  display: block !important;
+  position: fixed;
   inset: 0;
-  background-image:
-    url("assets/design/arch-grid.svg"),
-    url("assets/design/pattern-zen-cyber-tile.jpg");
-  background-size: 120px 120px, 520px 520px;
-  background-repeat: repeat, repeat;
-  opacity: 0.16;
-  mix-blend-mode: screen;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(132deg, transparent 0 64%, rgba(255, 255, 255, 0.05) 64% 64.12%, transparent 64.12%),
+    linear-gradient(48deg, transparent 0 24%, rgba(94, 234, 212, 0.04) 24% 24.1%, transparent 24.1%),
+    linear-gradient(18deg, transparent 0 78%, rgba(255, 255, 255, 0.026) 78% 78.08%, transparent 78.08%),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(255, 255, 255, 0.01) 39px 40px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(255, 255, 255, 0.008) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 159px, rgba(255, 255, 255, 0.025) 159px 160px),
+    repeating-linear-gradient(0deg, transparent 0 159px, rgba(255, 255, 255, 0.018) 159px 160px),
+    radial-gradient(ellipse 38% 28% at 82% 72%, rgba(255, 255, 255, 0.055), transparent 72%);
+  opacity: 0.86;
   -webkit-mask-image: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.35) 32%,
-    rgba(0, 0, 0, 0.78) 68%,
-    rgba(0, 0, 0, 0.95) 100%
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 12%,
+    #000 34%,
+    rgba(0, 0, 0, 0.88) 100%
   );
   mask-image: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.35) 32%,
-    rgba(0, 0, 0, 0.78) 68%,
-    rgba(0, 0, 0, 0.95) 100%
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 12%,
+    #000 34%,
+    rgba(0, 0, 0, 0.88) 100%
   );
 }
 
-[data-theme="light"] .site-atmosphere__grid {
-  opacity: 0.12;
-  mix-blend-mode: multiply;
-  filter: grayscale(0.3) contrast(1.1);
+[data-theme="light"] .site-atmosphere__geometry {
+  background:
+    linear-gradient(132deg, transparent 0 64%, rgba(0, 0, 0, 0.055) 64% 64.12%, transparent 64.12%),
+    linear-gradient(48deg, transparent 0 24%, rgba(13, 107, 99, 0.045) 24% 24.1%, transparent 24.1%),
+    linear-gradient(18deg, transparent 0 78%, rgba(0, 0, 0, 0.03) 78% 78.08%, transparent 78.08%),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(0, 0, 0, 0.012) 39px 40px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(0, 0, 0, 0.01) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 159px, rgba(0, 0, 0, 0.035) 159px 160px),
+    repeating-linear-gradient(0deg, transparent 0 159px, rgba(0, 0, 0, 0.025) 159px 160px),
+    radial-gradient(ellipse 38% 28% at 82% 72%, rgba(255, 255, 255, 0.75), transparent 72%);
+  opacity: 0.76;
 }
 
-/* 下半部空間幾何：量體、地坪、模矩、透視軸（宅寂／建築） */
+/* 一條極淡水平「地坪光」 */
+.site-atmosphere__lightband {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 18%;
+  height: 1px;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 20%,
+    rgba(94, 234, 212, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 40px 8px rgba(94, 234, 212, 0.04);
+  opacity: 0.7;
+}
+
+[data-theme="light"] .site-atmosphere__lightband {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(15, 118, 110, 0.12) 50%,
+    transparent
+  );
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+/* HUD 格線／節點連線／外框：關閉 */
+.site-atmosphere__grid,
+.site-atmosphere__space,
+.site-frame {
+  display: none !important;
+}
+
+/* 空間量體層：已恢復為無照片底，此層關閉 */
 .site-atmosphere__space {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  opacity: 0.9;
+  display: none !important;
 }
 
 .site-atmosphere__space > * {
@@ -2239,248 +2288,186 @@ button {
   pointer-events: none;
 }
 
-/* 左下清水模量體 */
+/* 左下清水模量體＋側光 */
 .space-mass--l {
-  left: -4%;
+  left: -3%;
   bottom: 0;
-  width: min(42vw, 420px);
-  height: min(38vh, 340px);
-  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  width: min(40vw, 400px);
+  height: min(36vh, 320px);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
   border-bottom: none;
   border-left: none;
   background:
     linear-gradient(
+      115deg,
+      color-mix(in srgb, var(--accent) 7%, transparent) 0%,
+      transparent 42%
+    ),
+    linear-gradient(
       165deg,
       transparent 0%,
-      color-mix(in srgb, var(--accent) 4%, transparent) 48%,
-      color-mix(in srgb, var(--surface) 12%, transparent) 100%
+      color-mix(in srgb, var(--surface) 18%, transparent) 100%
     );
-  clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%);
-  opacity: 0.55;
+  clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+  opacity: 0.5;
+  box-shadow: inset -40px 0 60px color-mix(in srgb, #000 35%, transparent);
 }
 
-/* 右下錯位量體 */
+/* 右下錯位量體＋柔光 */
 .space-mass--r {
   right: -2%;
   bottom: 0;
-  width: min(36vw, 360px);
-  height: min(32vh, 300px);
-  border: 1px solid color-mix(in srgb, var(--accent-hot) 16%, var(--accent) 10%);
+  width: min(34vw, 340px);
+  height: min(30vh, 280px);
+  border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent);
   border-bottom: none;
   border-right: none;
   background:
     linear-gradient(
+      250deg,
+      color-mix(in srgb, var(--accent) 5%, transparent) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
       200deg,
       transparent 10%,
-      color-mix(in srgb, var(--accent-hot) 3.5%, transparent) 55%,
-      color-mix(in srgb, var(--surface) 10%, transparent) 100%
+      color-mix(in srgb, var(--surface) 14%, transparent) 100%
     );
-  clip-path: polygon(0 0, 100% 18%, 100% 100%, 0 100%);
-  opacity: 0.48;
+  clip-path: polygon(0 0, 100% 14%, 100% 100%, 0 100%);
+  opacity: 0.42;
+  box-shadow: inset 36px 0 50px color-mix(in srgb, #000 28%, transparent);
+}
+
+/* 天光狹縫（安藤式一束光，不碰頂欄） */
+.space-shaft {
+  left: 58%;
+  top: 22%;
+  width: min(18vw, 160px);
+  height: 55%;
+  transform: skewX(-12deg);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent) 4%, transparent) 30%,
+    color-mix(in srgb, #fff 3.5%, transparent) 55%,
+    transparent 100%
+  );
+  opacity: 0.55;
+  filter: blur(1px);
 }
 
 /* 地坪／緣側水平線 */
 .space-floor {
-  left: 6%;
-  right: 6%;
-  bottom: 14%;
+  left: 8%;
+  right: 8%;
+  bottom: 13%;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--accent) 38%, transparent) 18%,
-    color-mix(in srgb, var(--text-muted) 28%, transparent) 50%,
-    color-mix(in srgb, var(--accent) 32%, transparent) 82%,
+    color-mix(in srgb, var(--accent) 28%, transparent) 20%,
+    color-mix(in srgb, var(--text-muted) 20%, transparent) 50%,
+    color-mix(in srgb, var(--accent) 24%, transparent) 80%,
     transparent
   );
-  box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 12%, transparent);
-  opacity: 0.7;
+  opacity: 0.55;
 }
 
 .space-floor::after {
   content: "";
   position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 10px;
+  left: 18%;
+  right: 18%;
+  top: 9px;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--accent) 16%, transparent) 30%,
-    color-mix(in srgb, var(--accent) 12%, transparent) 70%,
+    color-mix(in srgb, var(--accent) 12%, transparent) 40%,
     transparent
   );
-  opacity: 0.55;
+  opacity: 0.45;
 }
 
-/* 下半模矩網（日式 8 模） */
+/* 下半模矩網 */
 .space-module {
   left: 50%;
-  bottom: 6%;
-  width: min(72vw, 720px);
-  height: min(28vh, 240px);
+  bottom: 5%;
+  width: min(68vw, 680px);
+  height: min(26vh, 220px);
   transform: translateX(-50%);
   background-image:
     linear-gradient(
-      color-mix(in srgb, var(--accent) 14%, transparent) 1px,
+      color-mix(in srgb, var(--accent) 11%, transparent) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--accent) 14%, transparent) 1px,
+      color-mix(in srgb, var(--accent) 11%, transparent) 1px,
       transparent 1px
     );
-  background-size: 48px 48px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 80%, #000 0%, transparent 75%);
-  mask-image: radial-gradient(ellipse 70% 80% at 50% 80%, #000 0%, transparent 75%);
-  opacity: 0.35;
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(ellipse 68% 78% at 50% 85%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(ellipse 68% 78% at 50% 85%, #000 0%, transparent 72%);
+  opacity: 0.32;
 }
 
-/* 透視軸：從下緣向中景收斂 */
-.space-axis--l {
-  left: 8%;
-  bottom: 0;
-  width: 1px;
-  height: 42%;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    color-mix(in srgb, var(--accent) 28%, transparent) 40%,
-    color-mix(in srgb, var(--accent) 40%, transparent)
-  );
-  transform: rotate(18deg);
-  transform-origin: bottom center;
-  opacity: 0.45;
-}
-
-.space-axis--r {
-  right: 10%;
-  bottom: 0;
-  width: 1px;
-  height: 38%;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    color-mix(in srgb, var(--accent-hot) 18%, transparent) 45%,
-    color-mix(in srgb, var(--accent) 35%, transparent)
-  );
-  transform: rotate(-16deg);
-  transform-origin: bottom center;
-  opacity: 0.4;
-}
-
-/* 中景漂浮框（空間比例） */
-.space-frame-box {
-  left: 50%;
-  bottom: 18%;
-  width: min(28vw, 260px);
-  height: min(18vw, 150px);
-  transform: translateX(-50%);
-  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--accent-hot) 6%, transparent),
-    0 0 40px color-mix(in srgb, var(--accent) 5%, transparent);
-  opacity: 0.4;
-}
-
-.space-frame-box::before {
-  content: "";
-  position: absolute;
-  inset: 10px 14px;
-  border: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
-  opacity: 0.7;
-}
-
-/* 節點：資料 × 建築交會 */
-.space-node {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 55%, transparent);
-  opacity: 0.55;
-}
-
-.space-node--1 {
-  left: 18%;
-  bottom: 14%;
-}
-
-.space-node--2 {
-  right: 22%;
-  bottom: 22%;
-  width: 4px;
-  height: 4px;
-  background: var(--accent-hot);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--accent-hot) 45%, transparent);
-  opacity: 0.45;
-}
-
-.space-node--3 {
-  left: 50%;
-  bottom: 14%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 3px;
-  opacity: 0.5;
-}
-
-/* 下角製圖角標（比 site-frame 更靠內一層） */
+/* 下角建築角標 */
 .space-bracket {
-  width: 28px;
-  height: 28px;
-  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  width: 22px;
+  height: 22px;
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
   border-style: solid;
   border-width: 0;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
 .space-bracket--bl {
-  left: 7%;
-  bottom: 8%;
+  left: 6%;
+  bottom: 7%;
   border-bottom-width: 1px;
   border-left-width: 1px;
 }
 
 .space-bracket--br {
-  right: 7%;
-  bottom: 8%;
+  right: 6%;
+  bottom: 7%;
   border-bottom-width: 1px;
   border-right-width: 1px;
 }
 
 [data-theme="light"] .space-mass--l,
 [data-theme="light"] .space-mass--r {
-  opacity: 0.38;
-  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  opacity: 0.32;
+  border-color: color-mix(in srgb, var(--accent) 24%, transparent);
 }
 
 [data-theme="light"] .space-module {
-  opacity: 0.28;
+  opacity: 0.24;
 }
 
 [data-theme="light"] .space-floor {
-  opacity: 0.55;
+  opacity: 0.45;
 }
 
-[data-theme="light"] .space-frame-box {
-  opacity: 0.32;
-}
-
-[data-theme="light"] .space-axis--l,
-[data-theme="light"] .space-axis--r {
-  opacity: 0.32;
+[data-theme="light"] .space-shaft {
+  opacity: 0.35;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent) 6%, transparent) 40%,
+    transparent 100%
+  );
 }
 
 .site-atmosphere__glow {
   position: absolute;
   inset: -20%;
+  /* 僅柔光，無格線／節點 */
   background:
-    radial-gradient(circle at 70% 20%, rgba(94, 234, 212, 0.09), transparent 28%),
-    radial-gradient(circle at 20% 70%, rgba(244, 114, 182, 0.06), transparent 32%),
-    radial-gradient(ellipse 55% 35% at 50% 92%, rgba(94, 234, 212, 0.05), transparent 55%);
-  animation: ambient-drift 18s ease-in-out infinite alternate;
+    radial-gradient(circle at 75% 18%, rgba(94, 234, 212, 0.05), transparent 32%),
+    radial-gradient(circle at 18% 75%, rgba(56, 189, 248, 0.035), transparent 36%);
+  animation: ambient-drift 22s ease-in-out infinite alternate;
 }
 
 @keyframes ambient-drift {
@@ -2764,6 +2751,19 @@ button {
     height: 32%;
     opacity: 0.32;
   }
+}
+
+
+/* =========================================================
+   各 section 建築照片底圖：已關閉（僅測試站曾有）
+   ========================================================= */
+
+.section-open-bg::before,
+.section-open-bg::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  background-image: none !important;
 }
 
 /* =========================================================
@@ -3422,7 +3422,7 @@ body.theme-borderless .lecture-pages {
 }
 
 body.theme-borderless .award-item {
-  padding: 0.48rem 0;
+  padding: 0.15rem 0;
   background: transparent !important;
   transition: background var(--transition);
 }
@@ -3430,6 +3430,15 @@ body.theme-borderless .award-item {
 body.theme-borderless .award-item:hover,
 body.theme-borderless .award-item.open {
   background: color-mix(in srgb, var(--accent) 4%, transparent) !important;
+}
+
+body.theme-borderless .award-header {
+  padding: 0.28rem 0.15rem;
+  gap: 0.15rem 0.45rem;
+}
+
+body.theme-borderless .awards-list {
+  gap: 0;
 }
 
 body.theme-borderless .award-rank {
@@ -3458,33 +3467,40 @@ body.theme-borderless .award-photo-card:hover {
   transform: scale(1.02);
 }
 
-/* Contact：開闊、可點區域清楚 */
+/* Contact：項目間距收緊 */
 body.theme-borderless .contact-card {
-  padding: 0.5rem 0 0;
+  padding: 0.2rem 0 0;
   position: relative;
 }
 
 body.theme-borderless .contact-card::before {
   content: "CONTACT";
-  top: -0.25rem;
+  top: -0.15rem;
   right: 0;
   letter-spacing: 0.28em;
   opacity: 0.4;
 }
 
+body.theme-borderless .contact-lead {
+  margin-bottom: 0.55rem;
+  font-size: 0.95rem;
+}
+
 body.theme-borderless .contact-links {
-  gap: 0.35rem;
+  gap: 0.1rem;
+  margin-bottom: 0.5rem;
 }
 
 body.theme-borderless .contact-link {
   background: transparent !important;
-  padding: 1rem 0.25rem;
+  padding: 0.4rem 0.15rem;
   border-radius: 0 !important;
+  gap: 0.55rem;
   transition: transform var(--transition), color var(--transition), background var(--transition);
 }
 
 body.theme-borderless .contact-link:hover {
-  transform: translateX(6px);
+  transform: translateX(4px);
   background: color-mix(in srgb, var(--accent) 5%, transparent) !important;
   color: var(--accent);
 }
@@ -3726,11 +3742,11 @@ html[data-theme="light"] body.theme-borderless .lecture-year {
   }
 
   body.theme-borderless .contact-link {
-    padding: 1.1rem 0.15rem;
+    padding: 0.55rem 0.1rem;
   }
 
   body.theme-borderless .timeline-header {
-    padding: 1.1rem 0.15rem;
+    padding: 0.75rem 0.1rem;
   }
 }
 
@@ -3897,17 +3913,17 @@ html[data-theme="light"] body.theme-borderless .lecture-year {
 }
 
 .collapse-toggle-wrap {
-  margin-top: 0.75rem;
-  margin-bottom: 0.15rem;
+  margin-top: 0.45rem;
+  margin-bottom: 0.1rem;
 }
 
 #awardsExpandBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  min-height: 44px;
-  padding: 0.55rem 0.35rem;
-  font-size: 0.8rem;
+  min-height: 36px;
+  padding: 0.35rem 0.25rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
 }
 
@@ -4419,4 +4435,12 @@ body.theme-borderless .about-meta {
     height: clamp(260px, 30vw, 400px);
     min-height: 260px;
   }
+}
+
+
+/* 覆蓋 borderless 實心底，讓開源區段底可見 */
+body.theme-borderless .section-open-bg.section-alt,
+body.theme-borderless .section-open-bg.section-contact,
+body.theme-borderless .section-open-bg {
+  background: transparent !important;
 }

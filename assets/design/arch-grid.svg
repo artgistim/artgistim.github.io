@@ -1,21 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-  <!-- 日式模矩格線 + 資料節點：可 tile -->
+  <!-- 純建築模矩格線：無節點、無斜線 -->
   <defs>
     <style>
-      .g { stroke: #5eead4; stroke-width: 0.4; fill: none; opacity: 0.35; }
-      .m { stroke: #f472b6; stroke-width: 0.35; opacity: 0.22; }
-      .d { fill: #5eead4; opacity: 0.45; }
+      .g { stroke: #5eead4; stroke-width: 0.35; fill: none; opacity: 0.28; }
+      .f { stroke: #5eead4; stroke-width: 0.28; fill: none; opacity: 0.14; }
     </style>
   </defs>
   <!-- 主模矩 40 -->
   <path class="g" d="M0 40 H120 M0 80 H120 M40 0 V120 M80 0 V120"/>
   <!-- 細分割 20 -->
-  <path class="g" d="M0 20 H120 M0 60 H120 M0 100 H120 M20 0 V120 M60 0 V120 M100 0 V120" opacity="0.45"/>
-  <!-- 斜向資料軸（賽博） -->
-  <path class="m" d="M0 120 L120 0"/>
-  <!-- 節點 -->
-  <circle class="d" cx="40" cy="40" r="1.1"/>
-  <circle class="d" cx="80" cy="80" r="1.1"/>
-  <circle class="d" cx="80" cy="40" r="0.7" opacity="0.35"/>
-  <circle class="d" cx="40" cy="80" r="0.7" opacity="0.35"/>
+  <path class="f" d="M0 20 H120 M0 60 H120 M0 100 H120 M20 0 V120 M60 0 V120 M100 0 V120"/>
 </svg>

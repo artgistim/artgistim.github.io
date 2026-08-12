@@ -20,7 +20,7 @@
         "01 城市數據與開放資料",
         "02 Vpon × Wee 人流與觀光數據應用"
       ],
-      "topics": ["Open Data", "GIS", "智慧城市", "人流", "視覺化"],
+      "topics": ["GIS", "智慧城市", "視覺化"],
       "file": "lectures/geo-data-smart-city-2023.pdf",
       "source_filename": "可完全公開_地理數據應用於智慧城市分析2023.pdf"
     },
@@ -40,7 +40,7 @@
         "02 Crafting Data: The Art of Storytelling",
         "03 Decoding Data: Unraveling Truths and Lies"
       ],
-      "topics": ["Data Storytelling", "SDGs", "Open Data", "視覺化", "儀表板"],
+      "topics": ["Data Storytelling", "儀表板"],
       "file": "lectures/data-storytelling-2023.pdf",
       "source_filename": "可完全公開_授課講義DataStorytelling.pdf"
     },
@@ -60,7 +60,7 @@
         "Introduction to Foot Traffic Data",
         "Industry Solutions：觀光／交通／零售"
       ],
-      "topics": ["人流大數據", "AI", "觀光", "交通", "零售", "CDP"],
+      "topics": ["AI", "觀光", "交通", "零售", "CDP"],
       "file": "lectures/mobile-intelligence-future-2024.pdf",
       "source_filename": "可完全公開_行動智慧大未來202408Vpon.pdf"
     }
