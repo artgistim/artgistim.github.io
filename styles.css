@@ -2685,13 +2685,13 @@ button {
 
 /* Hero tagline 更禪 */
 .hero-tagline {
-  font-family: var(--font-mono);
-  font-size: clamp(1rem, 1.35vw, 1.12rem);
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: clamp(0.86rem, 1vw, 0.94rem);
+  font-weight: 400;
   font-style: normal;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.025em;
   color: color-mix(in srgb, var(--text) 82%, var(--text-muted));
-  max-width: 32rem;
+  max-width: 34rem;
   text-wrap: balance;
 }
 
@@ -3685,8 +3685,8 @@ body.theme-borderless .name-zh {
 }
 
 body.theme-borderless .hero-tagline {
-  font-weight: 500;
-  line-height: 1.85;
+  font-weight: 400;
+  line-height: 1.75;
   opacity: 0.92;
 }
 
