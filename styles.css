@@ -426,8 +426,8 @@ button {
 }
 
 .hero-avatar {
-  width: 72px;
-  height: 72px;
+  width: 78px;
+  height: 78px;
   border-radius: var(--radius);
   object-fit: cover;
   border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
@@ -2116,8 +2116,8 @@ button {
   }
 
   .hero-avatar {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
   }
 
   .timeline::before {
@@ -2686,13 +2686,14 @@ button {
 /* Hero tagline 更禪 */
 .hero-tagline {
   font-family: var(--font-sans);
-  font-size: clamp(0.86rem, 1vw, 0.94rem);
+  font-size: clamp(0.82rem, 0.95vw, 0.9rem);
   font-weight: 400;
   font-style: normal;
   letter-spacing: 0.025em;
   color: color-mix(in srgb, var(--text) 82%, var(--text-muted));
   max-width: 34rem;
   text-wrap: balance;
+  text-align: left;
 }
 
 .hero-eyebrow {
@@ -3590,8 +3591,7 @@ body.theme-borderless .hero-showcase a > span {
 body.theme-borderless .hero-avatar {
   border: none !important;
   box-shadow: none !important;
-  outline: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  outline-offset: 3px;
+  outline: none;
 }
 
 body.theme-borderless .hero-cta .btn,
