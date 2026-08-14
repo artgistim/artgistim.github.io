@@ -529,7 +529,7 @@ button {
 }
 
 .hero-tagline {
-  font-size: 1.02rem;
+  font-size: 0.96rem;
   color: var(--text-muted);
   margin: 0 0 1.15rem;
   line-height: 1.7;
@@ -1003,7 +1003,7 @@ button {
 .skill-card p {
   font-size: 0.82rem;
   color: var(--text-muted);
-  margin-bottom: 0.55rem;
+  margin-bottom: 0;
   line-height: 1.45;
 }
 
@@ -2685,11 +2685,14 @@ button {
 
 /* Hero tagline 更禪 */
 .hero-tagline {
-  font-family: var(--font-serif);
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
   font-weight: 500;
-  letter-spacing: 0.04em;
+  font-style: normal;
+  letter-spacing: 0.055em;
   color: color-mix(in srgb, var(--text) 82%, var(--text-muted));
-  max-width: 28rem;
+  max-width: 32rem;
+  text-wrap: balance;
 }
 
 .hero-eyebrow {
@@ -3544,7 +3547,7 @@ body.theme-borderless .hero-tags span {
 }
 
 body.theme-borderless .hero-tags span + span::before {
-  content: "/";
+  content: "|";
   margin-right: 0.22rem;
   margin-left: 0.08rem;
   color: color-mix(in srgb, var(--accent-hot) 70%, var(--text-muted));
@@ -3682,7 +3685,7 @@ body.theme-borderless .name-zh {
 }
 
 body.theme-borderless .hero-tagline {
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.85;
   opacity: 0.92;
 }

@@ -631,7 +631,6 @@
     lecturesGrid.innerHTML = sorted
       .map((lec) => {
         const topics = Array.isArray(lec.topics) ? lec.topics : [];
-        const outline = Array.isArray(lec.outline) ? lec.outline : [];
         const file = escapeHtml(lec.file || "#");
         const ym = formatLectureYearMonth(lec.date, lec.year);
         return `
@@ -648,11 +647,6 @@
   <div class="lecture-card-body">
     <div class="lecture-card-body-inner">
       <p class="lecture-summary">${escapeHtml(lec.summary || "")}</p>
-      ${
-        outline.length
-          ? `<ul class="lecture-outline">${outline.map((o) => `<li>${escapeHtml(o)}</li>`).join("")}</ul>`
-          : ""
-      }
       ${
         topics.length
           ? `<div class="lecture-tags">${topics.map((t) => `<span>${escapeHtml(t)}</span>`).join("")}</div>`
