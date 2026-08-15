@@ -7,7 +7,7 @@
     {
       "src": "assets/awards/award-06.jpg",
       "thumb": "assets/thumbs/award-06.jpg",
-      "caption": "2024城市通微服務大黑客松第一名(獎金30萬)",
+      "caption": "2024 城市通微服務大黑客松第一名（獎金 30 萬）",
       "year": 2024
     },
     {
@@ -25,7 +25,7 @@
     {
       "src": "assets/awards/award-10.jpg",
       "thumb": "assets/thumbs/award-10.jpg",
-      "caption": "台南市智慧城市資料視覺化(第一名)",
+      "caption": "台南市智慧城市資料視覺化（第一名）",
       "year": 2019
     },
     {
@@ -61,13 +61,13 @@
     {
       "src": "assets/awards/award-02.jpg",
       "thumb": "assets/thumbs/award-02.jpg",
-      "caption": "亞洲黑客松研發獎勵(台灣代表)",
+      "caption": "亞洲黑客松研發獎勵（台灣代表）",
       "year": 2017
     },
     {
       "src": "assets/awards/award-11.jpg",
       "thumb": "assets/thumbs/award-11.jpg",
-      "caption": "人工智慧協會AIA活動合影",
+      "caption": "人工智慧協會 AIA 活動合影",
       "year": 2020
     }
   ],
@@ -79,7 +79,7 @@
       "badge": "Segment",
       "image": "assets/works/segment-extract.jpg",
       "thumb": "assets/thumbs/segment-extract.jpg",
-      "desc": "將人行道拓樸後與人流交集分析，擷取各時段的分量呈現。"
+      "desc": "將人行道拓樸與人流資料交集分析，呈現各時段的人流量。"
     },
     {
       "id": "od",
@@ -160,7 +160,7 @@
       "badge": "Overlay",
       "image": "assets/works/color-overlay.jpg",
       "thumb": "assets/thumbs/color-overlay.jpg",
-      "desc": "RGB 色彩疊透呈現社福資源與無障礙環境複合特質。"
+      "desc": "以 RGB 色彩疊圖呈現社福資源與無障礙環境的複合特質。"
     },
     {
       "id": "growth",
@@ -196,7 +196,7 @@
       "badge": "AOI",
       "image": "assets/works/geo-cluster.jpg",
       "thumb": "assets/thumbs/geo-cluster.jpg",
-      "desc": "將商業熱區影像轉換向量圖徵，並與周圍特徵進行 Kmeans 分群。"
+      "desc": "將商業熱區影像轉換向量圖徵，並與周圍特徵進行 K-means 分群。"
     },
     {
       "id": "tod",
@@ -205,7 +205,7 @@
       "badge": "TOD",
       "image": "assets/works/tod-thesis.jpg",
       "thumb": "assets/thumbs/tod-thesis.jpg",
-      "desc": "ArcGIS 多重路網分析捷運對生活便捷度與 Diversity Contours。"
+      "desc": "以 ArcGIS 多重路網分析與等時圈概念，評估捷運對生活便利性與都市機能多樣性的影響。"
     },
     {
       "id": "nasa-art",

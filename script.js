@@ -529,7 +529,7 @@
     awardsList.innerHTML = sorted
       .map((a, idx) => {
         const links = Array.isArray(a.links) ? a.links : [];
-        const team = a.team ? `<div>${escapeHtml(a.team)}</div>` : "";
+        const team = a.team ? `<div>隊名：${escapeHtml(a.team)}</div>` : "";
         const linksHtml =
           links.length > 0
             ? `<div class="award-links">${links
@@ -552,7 +552,6 @@
       <h3>${escapeHtml(a.title)}</h3>
       <div class="award-meta">
         <div><strong>${escapeHtml(a.issuer || "")}</strong></div>
-        <div>${escapeHtml(a.event || "")}</div>
         ${team}
       </div>
     </div>
@@ -749,9 +748,9 @@
 
     try {
       const [galleryRes, awardsRes, lecturesRes] = await Promise.all([
-        fetch("data/gallery.json", { cache: "no-cache" }),
-        fetch("data/awards.json", { cache: "no-cache" }),
-        fetch("data/lectures.json", { cache: "no-cache" }),
+        fetch("data/gallery.json?v=20260815copy", { cache: "no-cache" }),
+        fetch("data/awards.json?v=20260815copy", { cache: "no-cache" }),
+        fetch("data/lectures.json?v=20260815copy", { cache: "no-cache" }),
       ]);
 
       if (galleryRes.ok) {

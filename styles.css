@@ -535,6 +535,27 @@ button {
   line-height: 1.7;
 }
 
+.acoustic-guitar-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.02em;
+  margin-left: 0.15em;
+  color: currentColor;
+  white-space: nowrap;
+  vertical-align: -0.24em;
+}
+
+.acoustic-guitar-mark svg {
+  width: 1.55em;
+  height: 1.55em;
+  overflow: visible;
+}
+
+.acoustic-guitar-mark > span {
+  font-size: 1.05em;
+  line-height: 1;
+}
+
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
@@ -1788,6 +1809,7 @@ button {
   color: var(--text-muted);
   margin-bottom: 0.75rem;
   line-height: 1.65;
+  white-space: pre-line;
 }
 
 .award-work {
@@ -3441,11 +3463,21 @@ body.theme-borderless .award-header {
   gap: 0.15rem 0.45rem;
 }
 
+body.theme-borderless .award-year {
+  padding-top: 0;
+  line-height: 1.2rem;
+}
+
 body.theme-borderless .awards-list {
   gap: 0;
 }
 
 body.theme-borderless .award-rank {
+  display: inline-flex;
+  align-items: center;
+  height: 1.2rem;
+  padding: 0 !important;
+  line-height: 1.2rem;
   background: transparent !important;
   color: var(--accent-hot);
   font-family: var(--font-mono);
