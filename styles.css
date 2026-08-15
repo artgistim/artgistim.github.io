@@ -535,27 +535,6 @@ button {
   line-height: 1.7;
 }
 
-.acoustic-guitar-mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.02em;
-  margin-left: 0.15em;
-  color: currentColor;
-  white-space: nowrap;
-  vertical-align: -0.24em;
-}
-
-.acoustic-guitar-mark svg {
-  width: 1.55em;
-  height: 1.55em;
-  overflow: visible;
-}
-
-.acoustic-guitar-mark > span {
-  font-size: 1.05em;
-  line-height: 1;
-}
-
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
